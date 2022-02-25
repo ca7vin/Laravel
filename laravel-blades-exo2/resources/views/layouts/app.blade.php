@@ -8,13 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-  <div class="container">
-    <div class="columns-6">
-      <h1 class="text-yellow-300 align-center">Coucou</h1>
-    </div>
-    <div class="columns-6">
-      
-    </div>
-  </div>
+    @yield('content')
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
