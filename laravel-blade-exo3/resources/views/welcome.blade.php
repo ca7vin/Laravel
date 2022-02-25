@@ -10,6 +10,7 @@
         <h3>Bonus :</h3>
         <p>URL actuelle : {{ url()->current() }}</p>
         <p>URL précédente : {{ url()->previous() }}</p>
+        <i class="fa-brands fa-airbnb"></i>
     </div>
     @include('partials/footer')
 @endsection
