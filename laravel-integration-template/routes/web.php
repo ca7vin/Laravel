@@ -14,16 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return "Hello World";
-});
-Route::get('/coucou', function () {
-    return "Coucou Calvoute";
-});
-
-Route::get('/{user}', function ($user) {
-    return $user;
-});
-
-Route::get('/{nom}/{prenom}/{age}', function ($nom, $prenom, $age) {
-    return "Bonjour, Mr. " . $nom . " " . $prenom . " vous avez " . $age . "ans";
+    return view('welcome');
 });
