@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('commentaires', function (Blueprint $table) {
-            $table->id();
-            $table->string('nom', 60);
-            $table->string('prenom', 60);
+            $table->id(); //GUARDED
+            $table->string('nom', 60);// FILLABLE
+            $table->string('prenom', 60);// FILLABLE
             $table->date('date');
             $table->text('commentaire', 140);
             $table->text('post', 200);
