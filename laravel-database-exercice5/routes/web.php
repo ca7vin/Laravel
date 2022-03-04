@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     //     - Affichez tous les utilisateurs
     $users = User::all();
-    // dd($users);
+    dd($users);
     //     - Affichez le premier utilisateur
     $firstUser = User::first();
     // dd($firstUser);
