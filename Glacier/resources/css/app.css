@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import "../../node_modules/@fortawesome/fontawesome-free/css/all.css";
+
+/* @import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss"; */
+body{
+    font-family: 'Raleway', sans-serif;
+}
+section{
+    height: 100vh;
+}
+#bannerImg{
+    background-image: url('../../public/img/banner.jpg');
+    background-color: rgba(46, 46, 46, 0.589);
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    height: calc(100vh - 50px);
+}
+h1{
+    font-family: 'Sacramento', cursive;
+}
+p{
+    letter-spacing: 1px;
+}
+.iconDiv{
+    height: 150px;
+    width: 150px;
+}
+#parallax1{
+    background-image: url('../../public/img/banner.jpg');
+    background-color: rgba(46, 46, 46, 0.589);
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
