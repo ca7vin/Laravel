@@ -43,3 +43,15 @@ p{
     background-size: cover;
     background-position: center;
 }
+.cercle{
+    width: 50px;
+    height: 50px;
+}
+.cercle2{
+    width:30px;
+    height:30px;
+}
+.linePink{
+    width:2px;
+    height:100px;
+}

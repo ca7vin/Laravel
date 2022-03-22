@@ -1,0 +1,11 @@
+@extends('front/layout/app')
+@section('content')
+    @include('front/partials/loader')
+    @include('front/partials/header')
+    @include('front/partials/banner')
+    @include('front/partials/business')
+    @include('front/partials/project')
+    @include('front/partials/testimonial')
+    @include('front/partials/contact')
+    @include('front/partials/footer')
+@endsection

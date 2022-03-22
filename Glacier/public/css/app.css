@@ -7426,12 +7426,19 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-60 {
   height: 15rem;
 }
+.w-2\/5 {
+  width: 40%;
+}
 .w-1\/2 {
   width: 50%;
 }
 .columns-4 {
   -moz-columns: 4;
        columns: 4;
+}
+.columns-3 {
+  -moz-columns: 3;
+       columns: 3;
 }
 .columns-2 {
   -moz-columns: 2;
@@ -7467,9 +7474,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-4 {
   border-width: 4px;
 }
-.border-white {
+.border-pink-700 {
   --tw-border-opacity: 1;
-  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+  border-color: rgb(190 24 93 / var(--tw-border-opacity));
 }
 .bg-pink-700 {
   --tw-bg-opacity: 1;
@@ -7505,6 +7512,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-left: 0px;
   padding-right: 0px;
 }
+.px-40 {
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
 .pt-5 {
   padding-top: 1.25rem;
 }
@@ -7522,6 +7533,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
+}
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 .text-2xl {
   font-size: 1.5rem;
@@ -7591,6 +7606,18 @@ p{
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
+}
+.cercle{
+    width: 50px;
+    height: 50px;
+}
+.cercle2{
+    width:30px;
+    height:30px;
+}
+.linePink{
+    width:2px;
+    height:100px;
 }
 .hover\:font-bold:hover {
   font-weight: 700;
