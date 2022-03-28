@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Joueur;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class JoueurController extends Controller
 {
@@ -20,7 +21,13 @@ class JoueurController extends Controller
     public function store(Request $request)
     {
         $joueur = new Joueur;
+        $destination = "img/" . $joueur->Image;
+        if(File::exists($destination))
+        {
+            File::delete($destination);
+        }
         $request->validate([
+         'Image'=> 'required',
          'Joueur'=> 'required',
          'Nom'=> 'required',
          'Prenom'=> 'required',
@@ -29,6 +36,7 @@ class JoueurController extends Controller
          'Experience'=> 'required',
          'Race'=> 'required',
         ]); // store_validated_anchor;
+        $joueur->Image = $request->file("Image")->hashName();
         $joueur->Joueur = $request->Joueur;
         $joueur->Nom = $request->Nom;
         $joueur->Prenom = $request->Prenom;
@@ -37,6 +45,7 @@ class JoueurController extends Controller
         $joueur->Experience = $request->Experience;
         $joueur->Race = $request->Race;
         $joueur->save(); // store_anchor
+        $request->file("Image")->storePublicly('img', 'public');
         return redirect()->route("joueur.index")->with('message', "Successful storage !");
     }
     public function read($id)
@@ -52,7 +61,13 @@ class JoueurController extends Controller
     public function update($id, Request $request)
     {
         $joueur = Joueur::find($id);
+        $destination = "img/" . $joueur->Image;
+        if(File::exists($destination))
+        {
+            File::delete($destination);
+        }
         $request->validate([
+         'Image'=> 'required',
          'Joueur'=> 'required',
          'Nom'=> 'required',
          'Prenom'=> 'required',
@@ -61,6 +76,7 @@ class JoueurController extends Controller
          'Experience'=> 'required',
          'Race'=> 'required',
         ]); // update_validated_anchor;
+        $joueur->Image = $request->file("Image")->hashName();
         $joueur->Joueur = $request->Joueur;
         $joueur->Nom = $request->Nom;
         $joueur->Prenom = $request->Prenom;
@@ -69,6 +85,7 @@ class JoueurController extends Controller
         $joueur->Experience = $request->Experience;
         $joueur->Race = $request->Race;
         $joueur->save(); // update_anchor
+        $request->file("Image")->storePublicly('img', 'public');
         return redirect()->route("joueur.index")->with('message', "Successful update !");
     }
     public function destroy($id)

@@ -16,6 +16,7 @@ class JoueurSeeder extends Seeder
     public function run()
     {
         DB::table('joueurs')->insert([
+            'Image' => 'token-alex.png',
             'Joueur' => 'Aleksic',
             'Nom' => 'Shin',
             'Prenom' => 'Akiira',
@@ -25,6 +26,7 @@ class JoueurSeeder extends Seeder
             'Race' => 'Humain',
         ]);
         DB::table('joueurs')->insert([
+            'Image' => 'token-nico.png',
             'Joueur' => 'Nicola',
             'Nom' => 'Heratus',
             'Prenom' => 'Galados',
@@ -34,6 +36,7 @@ class JoueurSeeder extends Seeder
             'Race' => 'Drakéide',
         ]);
         DB::table('joueurs')->insert([
+            'Image' => 'token-samy.png',
             'Joueur' => 'Samy',
             'Nom' => 'Gebedo',
             'Prenom' => 'Gebedo',
@@ -41,6 +44,36 @@ class JoueurSeeder extends Seeder
             'Niveau' => '1',
             'Experience' => '25',
             'Race' => 'Gnome des fôrets',
+        ]);
+        DB::table('joueurs')->insert([
+            'Image' => 'token-annekat.png',
+            'Joueur' => 'Annekat',
+            'Nom' => 'Nemesis',
+            'Prenom' => 'Sora',
+            'Classe' => 'Barbare',
+            'Niveau' => '1',
+            'Experience' => '25',
+            'Race' => 'Drakéide',
+        ]);
+        DB::table('joueurs')->insert([
+            'Image' => 'token-jade.png',
+            'Joueur' => 'Jade',
+            'Nom' => 'Caskwing',
+            'Prenom' => 'Ennar',
+            'Classe' => 'Clerc',
+            'Niveau' => '1',
+            'Experience' => '25',
+            'Race' => 'Humain',
+        ]);
+        DB::table('joueurs')->insert([
+            'Image' => 'token-elliot.png',
+            'Joueur' => 'Elliot',
+            'Nom' => 'Tachedesang',
+            'Prenom' => 'Argawaen',
+            'Classe' => 'Guerrier',
+            'Niveau' => '1',
+            'Experience' => '25',
+            'Race' => 'Elfe des bois',
         ]);
         //
     }
