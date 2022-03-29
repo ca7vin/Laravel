@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PnjController;
 use App\Http\Controllers\MagesortController;
 use App\Http\Controllers\JoueurController;
+use App\Http\Controllers\MonstreController;
 use App\Models\Joueur;
 use App\Models\Magesort;
 use App\Models\Pnj;
@@ -26,7 +27,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/grimoire', [GrimoireController::class, 'index'])->name('grimoire');
-Route::get('/grimoire', [GrimoireController::class, 'wizard'])->name('grimoireWizard');
+Route::get('/monstres', [MonstreController::class, 'index'])->name('monstres');
 
 Route::get('/pnj', function () {
     $pnjs = Pnj::all();

@@ -13,6 +13,7 @@
         @endif
         <form action='{{ route('user.store') }}' method='post'>
             @csrf
+            {{-- USER --}}
             <div class="d-flex flex-column align-items-start justify-content-around">
                 <label for=''>email</label>
                 <input type='text' name='email'>
@@ -21,6 +22,7 @@
                 <label for=''>nickname</label>
                 <input type='text' name='nickname'>
             </div>
+            {{-- PROFILE --}}
             <div class="d-flex flex-column align-items-start justify-content-around">
                 <label for=''>name</label>
                 <input type='text' name='name'>
