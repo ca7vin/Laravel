@@ -9,7 +9,7 @@ class GrimoireController extends Controller
 {
     public function index()
     {
-        $spells = Http::get('https://api.open5e.com/spells/?limit=350')['results'];
+        $spells = Http::get('https://api.open5e.com/spells/?limit=321')['results'];
         return view("front/pages/grimoire",compact('spells'));
-    }           
+    }   
 }

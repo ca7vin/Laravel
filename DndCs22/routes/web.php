@@ -26,6 +26,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/grimoire', [GrimoireController::class, 'index'])->name('grimoire');
+Route::get('/grimoire', [GrimoireController::class, 'wizard'])->name('grimoireWizard');
 
 Route::get('/pnj', function () {
     $pnjs = Pnj::all();
