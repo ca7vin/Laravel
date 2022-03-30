@@ -25,6 +25,10 @@
                     <th scope='col'>ville</th>
                     <th scope='col'>pays</th>
                     <th scope='col'>effectif</th>
+                    <th scope='col'>avants</th>
+                    <th scope='col'>milieux</th>
+                    <th scope='col'>centres</th>
+                    <th scope='col'>remplacants</th>
                 </tr> {{-- all_tr_anchor --}}
             </thead>
             <tbody>
@@ -35,6 +39,11 @@
                         <td>{{ $equipe->ville }}</td>
                         <td>{{ $equipe->pays }}</td>
                         <td>{{ $equipe->joueurs->count() }} sur 7</td>
+                        <td>{{ $equipe->avants }} sur 2</td>
+                        <td>{{ $equipe->milieux }} sur 2</td>
+                        <td>{{ $equipe->arrieres }} sur 2</td>
+                        <td>{{ $equipe->remplacants }} sur 3</td>
+                        <td> </td>
                         <td> {{-- all_td_anchor --}}
                             <div class='d-flex'>
                                 <form action='{{ route('equipe.destroy', $equipe->id) }}' method='post'>

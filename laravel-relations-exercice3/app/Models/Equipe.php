@@ -23,8 +23,4 @@ class Equipe extends Model
     {
         return $this->hasMany(Joueur::class);
     }
-    public function postes()
-    {
-        return $this->hasMany(Poste::class);
-    }
 }

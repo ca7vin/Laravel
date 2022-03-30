@@ -17,8 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('nom');
             $table->integer('limite')->unsigned();
-            $table->integer('nombre')->unsigned();
-            $table->foreignId("equipe_id")->constrained("equipes", "id");
             $table->timestamps();
         });
     }

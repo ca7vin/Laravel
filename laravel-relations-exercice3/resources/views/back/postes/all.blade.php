@@ -22,7 +22,6 @@
                     <th scope='col'>#</th>
                     <th scope='col'>nom</th>
                     <th scope='col'>limite</th>
-                    <th scope='col'>nombre</th>
                 </tr> {{-- all_tr_anchor --}}
             </thead>
             <tbody>

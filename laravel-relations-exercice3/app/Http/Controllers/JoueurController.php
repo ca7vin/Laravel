@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Equipe;
 use App\Models\Joueur;
+use App\Models\Photo;
 use App\Models\Poste;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,9 @@ class JoueurController extends Controller
     public function store(Request $request)
     {
         $joueur = new Joueur;
+        $photo = new Photo;
+        $equipe = Equipe::find($request->equipe_id);
+        $poste = Poste::find($request->poste_id);
         $request->validate([
          'nom'=> 'required',
          'prenom'=> 'required',
@@ -34,7 +38,7 @@ class JoueurController extends Controller
          'pays'=> 'required',
          'poste_id'=> 'required',
          'equipe_id'=> 'required',
-         'photo_id'=> 'required',
+        //  'photo_id'=> 'required',
         ]); // store_validated_anchor;
         $joueur->nom = $request->nom;
         $joueur->prenom = $request->prenom;
@@ -45,12 +49,15 @@ class JoueurController extends Controller
         $joueur->pays = $request->pays;
         $joueur->poste_id = $request->poste_id;
         $joueur->equipe_id = $request->equipe_id;
-        $joueur->photo_id = $request->photo_id;
+        $photo->lien = $request->file("image")->hashName();
         // condition effectif et poste
-        if ($joueur->poste->nombre < $joueur->poste->limite) {
-            $joueur->poste->nombre += 1;
+        if ($equipe->joueurs->where('poste_id', $joueur->poste_id)->count() < $poste->limite) {
+            $photo->save();
+            $joueur->photo_id = $photo->id;
+            $equipe[$poste->nom] += 1;
             $joueur->save(); // store_anchor
-            $joueur->poste->save(); // store_anchor
+            $request->file("image")->storePublicly("img", "public");
+            $equipe->save(); // store_anchor
             return redirect()->route("joueur.index")->with('message', "Successful storage !");
         } else {
             return redirect()->route("joueur.create")->with('message', "Il y a déjà la nombre de joueurs requis à ce poste!");

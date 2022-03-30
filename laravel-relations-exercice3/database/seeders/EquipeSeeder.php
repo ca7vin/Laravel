@@ -20,24 +20,40 @@ class EquipeSeeder extends Seeder
             'ville' => 'Bruxelles',
             'pays' => 'Belgique',
             'effectif' => 0,
+            'avants' => 0,
+            'milieux' => 0,
+            'arrieres' => 0,
+            'remplacants' => 0,
         ]);
         DB::table('equipes')->insert([
             'nom' => 'Equipe 2',
             'ville' => 'Berlin',
             'pays' => 'Allemagne',
             'effectif' => 0,
+            'avants' => 0,
+            'milieux' => 0,
+            'arrieres' => 0,
+            'remplacants' => 0,
         ]);
         DB::table('equipes')->insert([
             'nom' => 'Equipe 3',
             'ville' => 'Paris',
             'pays' => 'France',
             'effectif' => 0,
+            'avants' => 0,
+            'milieux' => 0,
+            'arrieres' => 0,
+            'remplacants' => 0,
         ]);
         DB::table('equipes')->insert([
             'nom' => 'Equipe 4',
             'ville' => 'New-York',
             'pays' => 'U.S.A',
             'effectif' => 0,
+            'avants' => 0,
+            'milieux' => 0,
+            'arrieres' => 0,
+            'remplacants' => 0,
         ]);
         //
     }

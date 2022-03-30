@@ -21,6 +21,7 @@ class Joueur extends Model
         'pays',
         'poste_id',
         'equipe_id',
+        'photo_id',
     ]; // model_anchor
      
     protected $table = 'joueurs';

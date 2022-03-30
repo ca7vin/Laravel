@@ -21,8 +21,4 @@ class Poste extends Model
     {
         return $this->hasMany(Joueur::class);
     }
-    public function equipe()
-    {
-        return $this->belongsTo(Equipe::class);
-    }
 }

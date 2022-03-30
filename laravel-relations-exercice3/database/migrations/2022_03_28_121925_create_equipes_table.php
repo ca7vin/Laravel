@@ -19,6 +19,10 @@ return new class extends Migration
             $table->string('ville');
             $table->string('pays');
             $table->string('effectif');
+            $table->integer('avants')->unsigned();
+            $table->integer('milieux')->unsigned();
+            $table->integer('arrieres')->unsigned();
+            $table->integer('remplacants')->unsigned();
             $table->timestamps();
         });
     }
