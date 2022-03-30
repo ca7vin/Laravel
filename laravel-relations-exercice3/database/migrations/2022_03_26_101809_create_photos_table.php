@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('postes', function (Blueprint $table) {
+        Schema::create('photos', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->integer('limite')->unsigned();
-            $table->integer('nombre')->unsigned();
-            $table->foreignId("equipe_id")->constrained("equipes", "id");
+            $table->string('lien');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('postes');
+        Schema::dropIfExists('photos');
     }
 };

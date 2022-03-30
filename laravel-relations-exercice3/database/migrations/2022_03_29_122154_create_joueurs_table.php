@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('pays');
             $table->foreignId("poste_id")->constrained("postes", "id");
             $table->foreignId("equipe_id")->constrained("equipes", "id");
+            $table->foreignId("photo_id")->constrained("photos", "id");
             $table->timestamps();
         });
     }

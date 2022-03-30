@@ -34,6 +34,7 @@ class JoueurController extends Controller
          'pays'=> 'required',
          'poste_id'=> 'required',
          'equipe_id'=> 'required',
+         'photo_id'=> 'required',
         ]); // store_validated_anchor;
         $joueur->nom = $request->nom;
         $joueur->prenom = $request->prenom;
@@ -44,6 +45,7 @@ class JoueurController extends Controller
         $joueur->pays = $request->pays;
         $joueur->poste_id = $request->poste_id;
         $joueur->equipe_id = $request->equipe_id;
+        $joueur->photo_id = $request->photo_id;
         // condition effectif et poste
         if ($joueur->poste->nombre < $joueur->poste->limite) {
             $joueur->poste->nombre += 1;
@@ -51,7 +53,7 @@ class JoueurController extends Controller
             $joueur->poste->save(); // store_anchor
             return redirect()->route("joueur.index")->with('message', "Successful storage !");
         } else {
-            return redirect()->route("joueur.create")->with('message', "Il ya déjà la nombre de joueurs requis à ce poste!");
+            return redirect()->route("joueur.create")->with('message', "Il y a déjà la nombre de joueurs requis à ce poste!");
         }
     }
     public function read($id)
@@ -77,6 +79,7 @@ class JoueurController extends Controller
          'pays'=> 'required',
          'poste_id'=> 'required',
          'equipe_id'=> 'required',
+         'photo_id'=> 'required',
         ]); // update_validated_anchor;
         $joueur->nom = $request->nom;
         $joueur->prenom = $request->prenom;
@@ -87,6 +90,7 @@ class JoueurController extends Controller
         $joueur->pays = $request->pays;
         $joueur->poste_id = $request->poste_id;
         $joueur->equipe_id = $request->equipe_id;
+        $joueur->photo_id = $request->photo_id;
         $joueur->save(); // update_anchor
         return redirect()->route("joueur.index")->with('message', "Successful update !");
     }

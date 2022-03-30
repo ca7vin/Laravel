@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Poste extends Model
 {
     use HasFactory;
+
      
     protected $fillable = [
         'nom',
@@ -19,5 +20,9 @@ class Poste extends Model
     public function joueurs()
     {
         return $this->hasMany(Joueur::class);
+    }
+    public function equipe()
+    {
+        return $this->belongsTo(Equipe::class);
     }
 }

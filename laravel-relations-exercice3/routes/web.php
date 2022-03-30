@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\PosteController;
 use App\Http\Controllers\JoueurController;
 use App\Http\Controllers\EquipeController;
@@ -37,3 +39,9 @@ Route::post('/back/joueurs/{id}/update', [JoueurController::class, 'update'])->n
 Route::post('/back/joueurs/{id}/delete', [JoueurController::class, 'destroy'])->name('joueur.destroy');
 // Poste
 Route::get('/back/postes', [PosteController::class, 'index'])->name('poste.index');
+// Photo
+Route::get('/back/photos', [PhotoController::class, 'index'])->name('photo.index');
+Route::get('/back/photos/{id}/read', [PhotoController::class, 'read'])->name('photo.read');
+Route::post('/back/photos/{id}/delete', [PhotoController::class, 'destroy'])->name('photo.destroy');
+// 
+Route::get('/back/s', [Controller::class, 'index'])->name('.index');

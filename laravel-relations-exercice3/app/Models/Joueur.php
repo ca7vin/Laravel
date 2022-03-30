@@ -9,6 +9,8 @@ class Joueur extends Model
 {
     use HasFactory;
      
+    
+     
     protected $fillable = [
         'nom',
         'prenom',
@@ -31,6 +33,11 @@ class Joueur extends Model
     public function equipe()
     {
         return $this->belongsTo(Equipe::class);
+    }
+
+    public function photo()
+    {
+        return $this->hasOne(Photo::class);
     }
 
 }
