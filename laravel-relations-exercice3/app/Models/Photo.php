@@ -18,6 +18,6 @@ class Photo extends Model
 
     public function joueur()
     {
-        return $this->belongsTo(Joueur::class);
+        return $this->hasOne(Joueur::class);
     }
 }

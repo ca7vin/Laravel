@@ -21,6 +21,7 @@
             <thead>
                 <tr>
                     <th scope='col'>#</th>
+                    <th scope='col'>image</th>
                     <th scope='col'>nom</th>
                     <th scope='col'>prenom</th>
                     <th scope='col'>age</th>
@@ -36,6 +37,10 @@
                 @foreach ($joueurs as $joueur)
                     <tr>
                         <th scope='row'>{{ $joueur->id }}</th>
+                        {{-- {{ dd($joueur->photo) }} --}}
+                        <td class='d-flex align-items-center justify-content-center'>
+                            <img class='w-50' src="{{ asset('img/' . $joueur->photo->lien) }}" alt="">
+                        </td>
                         <td>{{ $joueur->nom }}</td>
                         <td>{{ $joueur->prenom }}</td>
                         <td>{{ $joueur->age }}</td>
