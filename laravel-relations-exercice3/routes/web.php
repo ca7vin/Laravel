@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PosteController;
 use App\Http\Controllers\JoueurController;
 use App\Http\Controllers\EquipeController;
 
@@ -34,3 +35,5 @@ Route::get('/back/joueurs/{id}/read', [JoueurController::class, 'read'])->name('
 Route::get('/back/joueurs/{id}/edit', [JoueurController::class, 'edit'])->name('joueur.edit');
 Route::post('/back/joueurs/{id}/update', [JoueurController::class, 'update'])->name('joueur.update');
 Route::post('/back/joueurs/{id}/delete', [JoueurController::class, 'destroy'])->name('joueur.destroy');
+// Poste
+Route::get('/back/postes', [PosteController::class, 'index'])->name('poste.index');

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Equipe;
 use App\Models\Joueur;
+use App\Models\Poste;
 use Illuminate\Http\Request;
 
 class JoueurController extends Controller
@@ -15,7 +17,9 @@ class JoueurController extends Controller
     }
     public function create()
     {
-        return view("/back/joueurs/create");
+        $postes = Poste::all();
+        $equipes = Equipe::all();
+        return view("/back/joueurs/create", compact("postes", "equipes"));
     }
     public function store(Request $request)
     {
@@ -28,7 +32,8 @@ class JoueurController extends Controller
          'email'=> 'required',
          'genre'=> 'required',
          'pays'=> 'required',
-         'role'=> 'required',
+         'poste_id'=> 'required',
+         'equipe_id'=> 'required',
         ]); // store_validated_anchor;
         $joueur->nom = $request->nom;
         $joueur->prenom = $request->prenom;
@@ -37,9 +42,17 @@ class JoueurController extends Controller
         $joueur->email = $request->email;
         $joueur->genre = $request->genre;
         $joueur->pays = $request->pays;
-        $joueur->role = $request->role;
-        $joueur->save(); // store_anchor
-        return redirect()->route("joueur.index")->with('message', "Successful storage !");
+        $joueur->poste_id = $request->poste_id;
+        $joueur->equipe_id = $request->equipe_id;
+        // condition effectif et poste
+        if ($joueur->poste->nombre < $joueur->poste->limite) {
+            $joueur->poste->nombre += 1;
+            $joueur->save(); // store_anchor
+            $joueur->poste->save(); // store_anchor
+            return redirect()->route("joueur.index")->with('message', "Successful storage !");
+        } else {
+            return redirect()->route("joueur.create")->with('message', "Il ya déjà la nombre de joueurs requis à ce poste!");
+        }
     }
     public function read($id)
     {
@@ -62,7 +75,8 @@ class JoueurController extends Controller
          'email'=> 'required',
          'genre'=> 'required',
          'pays'=> 'required',
-         'role'=> 'required',
+         'poste_id'=> 'required',
+         'equipe_id'=> 'required',
         ]); // update_validated_anchor;
         $joueur->nom = $request->nom;
         $joueur->prenom = $request->prenom;
@@ -71,7 +85,8 @@ class JoueurController extends Controller
         $joueur->email = $request->email;
         $joueur->genre = $request->genre;
         $joueur->pays = $request->pays;
-        $joueur->role = $request->role;
+        $joueur->poste_id = $request->poste_id;
+        $joueur->equipe_id = $request->equipe_id;
         $joueur->save(); // update_anchor
         return redirect()->route("joueur.index")->with('message', "Successful update !");
     }

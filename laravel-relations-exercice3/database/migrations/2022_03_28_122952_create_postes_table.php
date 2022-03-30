@@ -13,17 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('joueurs', function (Blueprint $table) {
+        Schema::create('postes', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
-            $table->string('prenom');
-            $table->string('age');
-            $table->string('telephone');
-            $table->string('email');
-            $table->string('genre');
-            $table->string('pays');
-            $table->foreignId("poste_id")->constrained("postes", "id");
-            $table->foreignId("equipe_id")->constrained("equipes", "id");
+            $table->integer('limite')->unsigned();
+            $table->integer('nombre')->unsigned();
             $table->timestamps();
         });
     }
@@ -35,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('joueurs');
+        Schema::dropIfExists('postes');
     }
 };

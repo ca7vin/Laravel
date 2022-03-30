@@ -15,16 +15,16 @@ class JoueurSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('joueurs')->insert([
-            'nom' => '',
-            'prenom' => '',
-            'age' => '',
-            'telephone' => '',
-            'email' => '',
-            'genre' => '',
-            'pays' => '',
-            'role' => '',
-        ]);
+        // DB::table('joueurs')->insert([
+        //     'nom' => '',
+        //     'prenom' => '',
+        //     'age' => '',
+        //     'telephone' => '',
+        //     'email' => '',
+        //     'genre' => '',
+        //     'pays' => '',
+        //     'poste_id' => '',
+        // ]);
         //
     }
 }

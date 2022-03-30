@@ -21,7 +21,6 @@
             <thead>
                 <tr>
                     <th scope='col'>#</th>
-                    <th scope='col'>Action</th>
                     <th scope='col'>nom</th>
                     <th scope='col'>prenom</th>
                     <th scope='col'>age</th>
@@ -29,7 +28,8 @@
                     <th scope='col'>email</th>
                     <th scope='col'>genre</th>
                     <th scope='col'>pays</th>
-                    <th scope='col'>role</th>
+                    <th scope='col'>poste</th>
+                    <th scope='col'>equipe</th>
                 </tr> {{-- all_tr_anchor --}}
             </thead>
             <tbody>
@@ -43,12 +43,13 @@
                         <td>{{ $joueur->email }}</td>
                         <td>{{ $joueur->genre }}</td>
                         <td>{{ $joueur->pays }}</td>
-                        <td>{{ $joueur->role }}</td>
+                        <td>{{ $joueur->poste->nom }}</td>
+                        <td>{{ $joueur->equipe->nom }}</td>
                         <td> {{-- all_td_anchor --}}
-                            <div class='d-flex'>
+                            <div class='d-flex justify-content-around'>
                                 <form action='{{ route('joueur.destroy', $joueur->id) }}' method='post'>
                                     @csrf
-                                    <button class=btn btn-danger type=submit>Delete</button>
+                                    <button class="btn btn-danger" type=submit>Delete</button>
                                 </form>
                                 <a class='btn btn-primary' href='{{ route('joueur.edit', $joueur->id) }}' role='button'>Edit</a>
                                 <a class='btn btn-primary' href='{{ route('joueur.read', $joueur->id) }}' role='button'>Read</a>

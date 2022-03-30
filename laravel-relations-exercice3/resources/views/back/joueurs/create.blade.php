@@ -2,6 +2,12 @@
 @section('content')
     <div class='container'>
         <h1>Joueurs</h1>
+        
+        @if (session()->has('message'))
+            <div class='alert alert-success'>
+                {{ session()->get('message') }}
+            </div>
+        @endif
         @if ($errors->any())
             <div class='alert alert-danger'>
                 <ul>
@@ -15,37 +21,49 @@
             @csrf
             <div>
                 <label for=''>nom</label>
-                <input type='text' name='nom'>
+                <input class='form-control' type='text' name='nom'>
             </div>
             <div>
                 <label for=''>prenom</label>
-                <input type='text' name='prenom'>
+                <input class='form-control' type='text' name='prenom'>
             </div>
             <div>
                 <label for=''>age</label>
-                <input type='text' name='age'>
+                <input class='form-control' type='text' name='age'>
             </div>
             <div>
                 <label for=''>telephone</label>
-                <input type='text' name='telephone'>
+                <input class='form-control' type='text' name='telephone'>
             </div>
             <div>
                 <label for=''>email</label>
-                <input type='text' name='email'>
+                <input class='form-control' type='text' name='email'>
             </div>
             <div>
                 <label for=''>genre</label>
-                <input type='text' name='genre'>
+                <input class='form-control' type='text' name='genre'>
             </div>
             <div>
                 <label for=''>pays</label>
-                <input type='text' name='pays'>
+                <input class='form-control' type='text' name='pays'>
             </div>
             <div>
-                <label for=''>role</label>
-                <input type='text' name='role'>
+                <label for="exampleFormControlSelect1">rôle</label>
+                <select name='poste_id' class="form-control" id="exampleFormControlSelect1">
+                    @foreach ($postes as $poste)
+                      <option value="{{ $poste->id }}">{{ $poste->nom }}</option>
+                    @endforeach
+                </select>
             </div>
-            <button type='submit'>Create</button> {{-- create_blade_anchor --}} 
+            <div>
+                <label for="exampleFormControlSelect1">equipe</label>
+                <select name='equipe_id' class="form-control" id="exampleFormControlSelect1">
+                    @foreach ($equipes as $equipe)
+                      <option value="{{ $equipe->id }}">{{ $equipe->nom }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <button class='btn btn-success mt-5' type='submit'>Create</button> {{-- create_blade_anchor --}}
         </form>
     </div>
 @endsection

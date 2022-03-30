@@ -5,19 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Equipe extends Model
+class Poste extends Model
 {
     use HasFactory;
      
     protected $fillable = [
         'nom',
-        'ville',
-        'pays',
-        'effectif',
+        'limite',
     ]; // model_anchor
      
-    protected $table = 'equipes';
-
+    protected $table = 'postes';
+    
     public function joueurs()
     {
         return $this->hasMany(Joueur::class);

@@ -17,8 +17,20 @@ class Joueur extends Model
         'email',
         'genre',
         'pays',
-        'role',
+        'poste_id',
+        'equipe_id',
     ]; // model_anchor
      
     protected $table = 'joueurs';
+
+    public function poste()
+    {
+        return $this->belongsTo(Poste::class);
+    }
+
+    public function equipe()
+    {
+        return $this->belongsTo(Equipe::class);
+    }
+
 }

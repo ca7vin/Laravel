@@ -21,7 +21,6 @@
             <thead>
                 <tr>
                     <th scope='col'>#</th>
-                    <th scope='col'>Action</th>
                     <th scope='col'>nom</th>
                     <th scope='col'>ville</th>
                     <th scope='col'>pays</th>
@@ -35,7 +34,7 @@
                         <td>{{ $equipe->nom }}</td>
                         <td>{{ $equipe->ville }}</td>
                         <td>{{ $equipe->pays }}</td>
-                        <td>{{ $equipe->effectif }}</td>
+                        <td>{{ $equipe->joueurs->count() }} sur 7</td>
                         <td> {{-- all_td_anchor --}}
                             <div class='d-flex'>
                                 <form action='{{ route('equipe.destroy', $equipe->id) }}' method='post'>
