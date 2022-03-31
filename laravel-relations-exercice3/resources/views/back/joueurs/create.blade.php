@@ -39,9 +39,21 @@
                 <label for=''>email</label>
                 <input class='form-control' type='text' name='email'>
             </div>
-            <div>
+            <div class='my-3 me-5 d-flex justify-content-between'>
                 <label for=''>genre</label>
-                <input class='form-control' type='text' name='genre'>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="genre" id="inlineRadio1" value="M">
+                    <label class="form-check-label" for="inlineRadio1">M</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="genre" id="inlineRadio2" value="F">
+                    <label class="form-check-label" for="inlineRadio2">F</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="genre" id="inlineRadio3" value="X">
+                    <label class="form-check-label" for="inlineRadio3">X</label>
+                  </div>
+                  
             </div>
             <div>
                 <label for=''>pays</label>

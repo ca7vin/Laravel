@@ -1,7 +1,11 @@
 @extends('back.layouts.app')
 @section('content')
+    @include('back/partials/sidenav')
     <div class='container'>
-        <h1 class='my-5'>Joueurs</h1>
+        <div class="container d-flex align-items-center justify-content-around">
+            <h1 class='my-5'>Joueurs</h1>
+            <a class='btn btn-success' href='{{ route('joueur.create') }}' role='button'>Create</a>
+        </div>
         @if (session()->has('message'))
             <div class='alert alert-success'>
                 {{ session()->get('message') }}
@@ -16,21 +20,20 @@
                 </ul>
             </div>
         @endif
-        <a class='btn btn-success' href='{{ route('joueur.create') }}' role='button'>Create</a>
         <table class='table'>
             <thead>
                 <tr>
                     <th scope='col'>#</th>
-                    <th scope='col'>image</th>
-                    <th scope='col'>nom</th>
-                    <th scope='col'>prenom</th>
-                    <th scope='col'>age</th>
-                    <th scope='col'>telephone</th>
-                    <th scope='col'>email</th>
-                    <th scope='col'>genre</th>
-                    <th scope='col'>pays</th>
-                    <th scope='col'>poste</th>
-                    <th scope='col'>equipe</th>
+                    <th class='text-uppercase' scope='col'>image</th>
+                    <th class='text-uppercase' scope='col'>nom</th>
+                    <th class='text-uppercase' scope='col'>prenom</th>
+                    <th class='text-uppercase' scope='col'>age</th>
+                    <th class='text-uppercase' scope='col'>telephone</th>
+                    <th class='text-uppercase' scope='col'>email</th>
+                    <th class='text-uppercase' scope='col'>genre</th>
+                    <th class='text-uppercase' scope='col'>pays</th>
+                    <th class='text-uppercase' scope='col'>poste</th>
+                    <th class='text-uppercase' scope='col'>equipe</th>
                 </tr> {{-- all_tr_anchor --}}
             </thead>
             <tbody>
@@ -56,7 +59,7 @@
                                     @csrf
                                     <button class="btn btn-danger" type=submit>Delete</button>
                                 </form>
-                                <a class='btn btn-primary' href='{{ route('joueur.edit', $joueur->id) }}' role='button'>Edit</a>
+                                <a class='btn btn-warning mx-3' href='{{ route('joueur.edit', $joueur->id) }}' role='button'>Edit</a>
                                 <a class='btn btn-primary' href='{{ route('joueur.read', $joueur->id) }}' role='button'>Read</a>
                             </div>
                         </td>

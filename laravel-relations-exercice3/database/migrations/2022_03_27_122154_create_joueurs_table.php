@@ -22,9 +22,9 @@ return new class extends Migration
             $table->string('email');
             $table->string('genre');
             $table->string('pays');
-            $table->foreignId("poste_id")->constrained("postes", "id");
-            $table->foreignId("equipe_id")->constrained("equipes", "id");
-            $table->foreignId("photo_id")->constrained("photos", "id");
+            $table->foreignId("poste_id")->constrained("postes", "id")->nullable();
+            $table->foreignId("equipe_id")->constrained("equipes", "id")->nullable();
+            $table->foreignId("photo_id")->constrained("photos", "id")->nullable();
             $table->timestamps();
         });
     }

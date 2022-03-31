@@ -51,7 +51,7 @@ class JoueurController extends Controller
         $joueur->equipe_id = $request->equipe_id;
         $photo->lien = $request->file("image")->hashName();
         // condition effectif et poste
-        if ($equipe->joueurs->where('poste_id', $joueur->poste_id)->count() < $poste->limite) {
+        if ($equipe[$poste->nom] < $poste->limite) {
             $photo->save();
             $joueur->photo_id = $photo->id;
             $equipe[$poste->nom] += 1;
