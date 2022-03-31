@@ -31,6 +31,10 @@ class PosteSeeder extends Seeder
             'nom' => 'remplacants',
             'limite' => 3,
         ]);
+        DB::table('postes')->insert([
+            'nom' => 'aucun',
+            'limite' => 1000,
+        ]);
         //(2 avant, 2 centraux, 2 arriere, 3remplacants)
     }
 }

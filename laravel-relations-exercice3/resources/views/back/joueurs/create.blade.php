@@ -1,11 +1,17 @@
 @extends('back.layouts.app')
 @section('content')
-    <div class='container'>
+@include('back/partials/sidenav')
+<div class='container d-flex flex-column align-items-center justify-content-center'>
         <h1>Joueurs</h1>
 
         @if (session()->has('message'))
             <div class='alert alert-success'>
                 {{ session()->get('message') }}
+            </div>
+        @endif
+        @if (session()->has('error'))
+            <div class='alert alert-danger'>
+                {{ session()->get('error') }}
             </div>
         @endif
         @if ($errors->any())
@@ -37,7 +43,7 @@
             </div>
             <div>
                 <label for=''>email</label>
-                <input class='form-control' type='text' name='email'>
+                <input class='form-control' type='email' name='email'>
             </div>
             <div class='my-3 me-5 d-flex justify-content-between'>
                 <label for=''>genre</label>
@@ -79,7 +85,7 @@
                 <label for="formFile" class="form-label">Default file input</label>
                 <input class="form-control" type="file" id="formFile" name="image" accept="image/png, image/jpeg">
             </div>
-            <button class='btn btn-success mt-5' type='submit'>Create</button> {{-- create_blade_anchor --}}
+            <button class='btn btn-success mt-3' type='submit'>Create</button> {{-- create_blade_anchor --}}
         </form>
     </div>
 @endsection

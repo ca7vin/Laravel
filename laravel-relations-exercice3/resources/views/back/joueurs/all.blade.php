@@ -1,7 +1,7 @@
 @extends('back.layouts.app')
 @section('content')
-    @include('back/partials/sidenav')
-    <div class='container'>
+@include('back/partials/sidenav')
+<div class='container d-flex flex-column align-items-center justify-content-center'>
         <div class="container d-flex align-items-center justify-content-around">
             <h1 class='my-5'>Joueurs</h1>
             <a class='btn btn-success' href='{{ route('joueur.create') }}' role='button'>Create</a>
@@ -24,16 +24,16 @@
             <thead>
                 <tr>
                     <th scope='col'>#</th>
-                    <th class='text-uppercase' scope='col'>image</th>
-                    <th class='text-uppercase' scope='col'>nom</th>
-                    <th class='text-uppercase' scope='col'>prenom</th>
-                    <th class='text-uppercase' scope='col'>age</th>
-                    <th class='text-uppercase' scope='col'>telephone</th>
-                    <th class='text-uppercase' scope='col'>email</th>
-                    <th class='text-uppercase' scope='col'>genre</th>
-                    <th class='text-uppercase' scope='col'>pays</th>
-                    <th class='text-uppercase' scope='col'>poste</th>
-                    <th class='text-uppercase' scope='col'>equipe</th>
+                    <th class='text-uppercase text-center' scope='col'>image</th>
+                    <th class='text-uppercase text-center' scope='col'>nom</th>
+                    <th class='text-uppercase text-center' scope='col'>prenom</th>
+                    <th class='text-uppercase text-center' scope='col'>age</th>
+                    <th class='text-uppercase text-center' scope='col'>telephone</th>
+                    <th class='text-uppercase text-center' scope='col'>email</th>
+                    <th class='text-uppercase text-center' scope='col'>genre</th>
+                    <th class='text-uppercase text-center' scope='col'>pays</th>
+                    <th class='text-uppercase text-center' scope='col'>poste</th>
+                    <th class='text-uppercase text-center' scope='col'>equipe</th>
                 </tr> {{-- all_tr_anchor --}}
             </thead>
             <tbody>
@@ -44,15 +44,15 @@
                         <td class='d-flex align-items-center justify-content-center'>
                             <img class='w-50' src="{{ asset('img/' . $joueur->photo->lien) }}" alt="">
                         </td>
-                        <td>{{ $joueur->nom }}</td>
-                        <td>{{ $joueur->prenom }}</td>
-                        <td>{{ $joueur->age }}</td>
-                        <td>{{ $joueur->telephone }}</td>
-                        <td>{{ $joueur->email }}</td>
-                        <td>{{ $joueur->genre }}</td>
-                        <td>{{ $joueur->pays }}</td>
-                        <td>{{ $joueur->poste->nom }}</td>
-                        <td>{{ $joueur->equipe->nom }}</td>
+                        <td class='text-center'>{{ $joueur->nom }}</td>
+                        <td class='text-center'>{{ $joueur->prenom }}</td>
+                        <td class='text-center'>{{ $joueur->age }}</td>
+                        <td class='text-center'>{{ $joueur->telephone }}</td>
+                        <td class='text-center'>{{ $joueur->email }}</td>
+                        <td class='text-center'>{{ $joueur->genre }}</td>
+                        <td class='text-center'>{{ $joueur->pays }}</td>
+                        <td class='text-center'>{{ $joueur->poste->nom }}</td>
+                        <td class='text-center'>{{ $joueur->equipe->nom }}</td>
                         <td> {{-- all_td_anchor --}}
                             <div class='d-flex justify-content-around'>
                                 <form action='{{ route('joueur.destroy', $joueur->id) }}' method='post'>

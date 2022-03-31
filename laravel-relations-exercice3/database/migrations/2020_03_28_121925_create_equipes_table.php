@@ -20,9 +20,15 @@ return new class extends Migration
             $table->string('pays');
             $table->string('effectif');
             $table->integer('avants')->unsigned();
+            $table->integer('avantsMax')->unsigned();
             $table->integer('milieux')->unsigned();
+            $table->integer('milieuxMax')->unsigned();
             $table->integer('arrieres')->unsigned();
+            $table->integer('arrieresMax')->unsigned();
             $table->integer('remplacants')->unsigned();
+            $table->integer('remplacantsMax')->unsigned();
+            $table->integer('aucun')->unsigned();
+            $table->integer('aucunMax')->unsigned();
             $table->timestamps();
         });
     }

@@ -24,28 +24,28 @@
             <thead>
                 <tr>
                     <th scope='col'>#</th>
-                    <th class='text-uppercase' scope='col'>nom</th>
-                    <th class='text-uppercase' scope='col'>ville</th>
-                    <th class='text-uppercase' scope='col'>pays</th>
-                    <th class='text-uppercase' scope='col'>effectif</th>
-                    <th class='text-uppercase' scope='col'>avants</th>
-                    <th class='text-uppercase' scope='col'>milieux</th>
-                    <th class='text-uppercase' scope='col'>centres</th>
-                    <th class='text-uppercase' scope='col'>remplacants</th>
+                    <th class='text-uppercase text-center' scope='col'>nom</th>
+                    <th class='text-uppercase text-center' scope='col'>ville</th>
+                    <th class='text-uppercase text-center' scope='col'>pays</th>
+                    <th class='text-uppercase text-center' scope='col'>effectif</th>
+                    <th class='text-uppercase text-center' scope='col'>avants</th>
+                    <th class='text-uppercase text-center' scope='col'>milieux</th>
+                    <th class='text-uppercase text-center' scope='col'>arrieres</th>
+                    <th class='text-uppercase text-center' scope='col'>remplacants</th>
                 </tr> {{-- all_tr_anchor --}}
             </thead>
             <tbody>
                 @foreach ($equipes as $equipe)
                     <tr>
                         <th scope='row'>{{ $equipe->id }}</th>
-                        <td>{{ $equipe->nom }}</td>
-                        <td>{{ $equipe->ville }}</td>
-                        <td>{{ $equipe->pays }}</td>
-                        <td>{{ $equipe->joueurs->count() }} sur 7</td>
-                        <td>{{ $equipe->avants }} sur 2</td>
-                        <td>{{ $equipe->milieux }} sur 2</td>
-                        <td>{{ $equipe->arrieres }} sur 2</td>
-                        <td>{{ $equipe->remplacants }} sur 3</td>
+                        <td class='text-center'>{{ $equipe->nom }}</td>
+                        <td class='text-center'>{{ $equipe->ville }}</td>
+                        <td class='text-center'>{{ $equipe->pays }}</td>
+                        <td class='text-center'>{{ $equipe->joueurs->count() }} sur {{ $equipe->effectif }}</td>
+                        <td class='text-center'>{{ $equipe->avants }} sur {{ $equipe->avantsMax }}</td>
+                        <td class='text-center'>{{ $equipe->milieux }} sur {{ $equipe->milieuxMax }}</td>
+                        <td class='text-center'>{{ $equipe->arrieres }} sur {{ $equipe->arrieresMax }}</td>
+                        <td class='text-center'>{{ $equipe->remplacants }} sur {{ $equipe->remplacantsMax }}</td>
                         <td> {{-- all_td_anchor --}}
                             <div class='d-flex justify-content-around'>
                                 <form action='{{ route('equipe.destroy', $equipe->id) }}' method='post'>
