@@ -42,7 +42,7 @@
                         <th scope='row'>{{ $joueur->id }}</th>
                         {{-- {{ dd($joueur->photo) }} --}}
                         <td class='d-flex align-items-center justify-content-center'>
-                            <img class='w-50' src="{{ asset('img/' . $joueur->photo->lien) }}" alt="">
+                            <img class='w-100' src="{{ asset('img/' . $joueur->photo->lien) }}" alt="">
                         </td>
                         <td class='text-center'>{{ $joueur->nom }}</td>
                         <td class='text-center'>{{ $joueur->prenom }}</td>

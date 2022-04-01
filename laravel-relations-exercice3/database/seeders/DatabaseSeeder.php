@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Joueur;
+use App\Models\Photo;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,11 +17,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        $this->call([
-            PosteSeeder::class,
-            EquipeSeeder::class,
-            JoueurSeeder::class,
-            PhotoSeeder::class,
-        ]);
+        $this->call([EquipeSeeder::class,PosteSeeder::class]);
+        Photo::factory(45)->create();
+        Joueur::factory(45)->create();
     }
 }

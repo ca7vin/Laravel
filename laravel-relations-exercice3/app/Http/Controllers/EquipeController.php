@@ -65,15 +65,15 @@ class EquipeController extends Controller
         $equipe->ville = $request->ville;
         $equipe->pays = $request->pays;
         $equipe->effectif = $request->effectif;
-        $equipe->avants = $request->avants;
+        $equipe->avants = 0;
         $equipe->avantsMax = $request->avantsMax;
-        $equipe->milieux = $request->milieux;
+        $equipe->milieux = 0;
         $equipe->milieuxMax = $request->milieuxMax;
-        $equipe->arrieres = $request->arrieres;
+        $equipe->arrieres = 0;
         $equipe->arrieresMax = $request->arrieresMax;
-        $equipe->remplacants = $request->remplacants;
+        $equipe->remplacants = 0;
         $equipe->remplacantsMax = $request->remplacantsMax;
-        $equipe->aucun = $request->aucun;
+        $equipe->aucun = 0;
         $equipe->aucunMax = $request->aucunMax;
         $equipe->save(); // update_anchor
         return redirect()->route("equipe.index")->with('message', "Successful update !");

@@ -36,6 +36,13 @@
        </a>
        <span class="tooltip">Joueurs</span>
      </li>
+      <li>
+       <a href="{{ Route('welcome') }}">
+         <i class='bx bxs-dashboard'></i>
+         <span class="links_name">Dashboard</span>
+       </a>
+       <span class="tooltip">Dashboard</span>
+     </li>
      <li class="profile">
          <div class="profile-details">
            <!--<img src="profile.jpg" alt="profileImg">-->
