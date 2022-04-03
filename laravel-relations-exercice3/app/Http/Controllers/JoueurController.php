@@ -97,7 +97,6 @@ class JoueurController extends Controller
         $poste = Poste::find($request->poste_id);
         $equipe = Equipe::find($request->equipe_id);
         $photo->lien = $request->file("imageEdit")->hashName();
-        $joueur->save(); // update_anchor
         $photo->save(); // update_anchor
         $request->file("imageEdit")->storePublicly("img", "public");
         if ($equipe->joueurs->where("poste_id", '=', $request->poste_id)->count() < $poste->limite) {

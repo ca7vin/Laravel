@@ -46,10 +46,6 @@
                 <label for=''>remplacantsMax</label>
                 <input class='form-control'  type='number' name='remplacantsMax'>
             </div>
-            <div>
-                <label for=''>aucunMax</label>
-                <input class='form-control'  type='number' name='aucunMax'>
-            </div>
             <button class='btn btn-success mt-3' type='submit'>Create</button> {{-- create_blade_anchor --}} 
         </form>
     </div>
