@@ -32,7 +32,6 @@
                     <th class='text-uppercase text-center' scope='col'>milieux</th>
                     <th class='text-uppercase text-center' scope='col'>arrieres</th>
                     <th class='text-uppercase text-center' scope='col'>remplacants</th>
-                    <th class='text-uppercase text-center' scope='col'>sans poste</th>
                 </tr> {{-- all_tr_anchor --}}
             </thead>
             <tbody>
@@ -47,7 +46,6 @@
                         <td class='text-center'>{{ $equipe->joueurs->where("poste_id", '=', 2)->count() }} sur {{ $equipe->milieuxMax }}</td>
                         <td class='text-center'>{{ $equipe->joueurs->where("poste_id", '=', 3)->count() }} sur {{ $equipe->arrieresMax }}</td>
                         <td class='text-center'>{{ $equipe->joueurs->where("poste_id", '=', 4)->count() }} sur {{ $equipe->remplacantsMax }}</td>
-                        <td class='text-center'>{{ $equipe->joueurs->where("poste_id", '=', 5)->count() }} sur {{ $equipe->aucunMax }}</td>
                         <td> {{-- all_td_anchor --}}
                             <div class='d-flex justify-content-around'>
                                 <form action='{{ route('equipe.destroy', $equipe->id) }}' method='post'>

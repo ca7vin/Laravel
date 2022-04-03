@@ -28,7 +28,7 @@
           </div>
 
         @endforeach
-        <button  class="bg-yellow-400 rounded p-3 m-10">Load more</button>
+        <button class="bg-yellow-400 rounded p-3 m-10">Load more</button>
     </div>
 </section>
 

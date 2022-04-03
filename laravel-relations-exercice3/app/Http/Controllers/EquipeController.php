@@ -30,16 +30,10 @@ class EquipeController extends Controller
         $equipe->ville = $request->ville;
         $equipe->pays = $request->pays;
         $equipe->effectif = $request->effectif;
-        $equipe->avants = 0;
         $equipe->avantsMax = $request->avantsMax;
-        $equipe->milieux = 0;
         $equipe->milieuxMax = $request->milieuxMax;
-        $equipe->arrieres = 0;
         $equipe->arrieresMax = $request->arrieresMax;
-        $equipe->remplacants = 0;
         $equipe->remplacantsMax = $request->remplacantsMax;
-        $equipe->aucun = 0;
-        $equipe->aucunMax = $request->aucunMax;
         $equipe->save(); // store_anchor
         return redirect()->route("equipe.index")->with('message', "Successful storage !");
     }
@@ -65,16 +59,10 @@ class EquipeController extends Controller
         $equipe->ville = $request->ville;
         $equipe->pays = $request->pays;
         $equipe->effectif = $request->effectif;
-        $equipe->avants = 0;
         $equipe->avantsMax = $request->avantsMax;
-        $equipe->milieux = 0;
         $equipe->milieuxMax = $request->milieuxMax;
-        $equipe->arrieres = 0;
         $equipe->arrieresMax = $request->arrieresMax;
-        $equipe->remplacants = 0;
         $equipe->remplacantsMax = $request->remplacantsMax;
-        $equipe->aucun = 0;
-        $equipe->aucunMax = $request->aucunMax;
         $equipe->save(); // update_anchor
         return redirect()->route("equipe.index")->with('message', "Successful update !");
     }

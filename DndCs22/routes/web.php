@@ -20,14 +20,13 @@ use App\Models\Pnj;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// make a route for spell.blade.php
 
-Route::get('/', function () {
-    $joueurs = Joueur::all();
-    return view('front/pages/home', compact('joueurs'));
-})->name('home');
+
 
 Route::get('/grimoire', [GrimoireController::class, 'index'])->name('grimoire');
 Route::get('/monstres', [MonstreController::class, 'index'])->name('monstres');
+Route::get('/monstres2', [MonstreController::class, 'loadMore'])->name('loadMore');
 
 Route::get('/pnj', function () {
     $pnjs = Pnj::all();

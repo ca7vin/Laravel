@@ -46,10 +46,6 @@
                 <label for=''>Remplacant Max</label>
                 <input class='form-control'  type='number' name='remplacantsMax' value='{{ $equipe->remplacantsMax }}'>
             </div>
-            <div>
-                <label for=''>Aucun poste Max</label>
-                <input class='form-control'  type='number' name='aucunMax' value='{{ $equipe->aucunMax }}'>
-            </div>
             <button class='btn btn-warning mt-3' type='submit'>Update</button> {{-- update_blade_anchor --}}
         </form>
     </div>
