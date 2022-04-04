@@ -31,10 +31,10 @@
                     <td class="text-center">{{ $joueur->email }}</td>
                     <td class="text-center">{{ $joueur->genre }}</td>
                     <td class="text-center">{{ $joueur->pays }}</td>
-                    <td class="text-center"><a href="{{ route('equipe.read', $joueur->equipe->id) }}">{{ $joueur->equipe->nom }}</a></td>
+                    <td class="text-center"><a href="{{ route('equipes.show', $joueur->equipe->id) }}">{{ $joueur->equipe->nom }}</a></td>
                     <td class="text-center">{{ $joueur->poste->nom }}</td>
                     <td> {{-- read_td_anchor --}}
-                        <a class='btn btn-primary' href='{{ route('joueur.index') }}' role='button'>Back</a>
+                        <a class='btn btn-primary' href='{{ route('joueurs.index') }}' role='button'>Back</a>
                     </td>
                 </tr>
             </tbody>

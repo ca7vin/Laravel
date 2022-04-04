@@ -32,13 +32,6 @@ table{
     background-blend-mode: multiply;
 }
 
-#grimoire{
-    /* background-image: url("../../public/img/parchemin.jpg");
-    background-repeat:repeat;
-    background-size: contain;
-    background-position: center; */
-}
-
 .imagePnj{
     width: 150px;
     height: 150px;

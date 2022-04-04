@@ -54,9 +54,9 @@ class JoueurController extends Controller
             $joueur->save(); // store_anchor
             $request->file("image")->storePublicly("img", "public");
             $equipe->save(); // store_anchor
-            return redirect()->route("joueur.index")->with('message', "Successful storage !");
+            return redirect()->route("joueurs.index")->with('message', "Successful storage !");
         } else {
-            return redirect()->route("joueur.create")->with('error', "Il y a déjà la nombre de joueurs requis à ce poste!");
+            return redirect()->route("joueurs.create")->with('error', "Il y a déjà la nombre de joueurs requis à ce poste!");
         }
     }
     public function read($id)
@@ -102,9 +102,9 @@ class JoueurController extends Controller
         if ($equipe->joueurs->where("poste_id", '=', $request->poste_id)->count() < $poste->limite) {
             $joueur->save(); // store_anchor
             $equipe->save(); // store_anchor
-            return redirect()->route("joueur.index")->with('message', "Successful storage !");
+            return redirect()->route("joueurs.index")->with('message', "Successful storage !");
         } else {
-            return redirect()->route("joueur.create")->with('error', "Il y a déjà la nombre de joueurs requis à ce poste!");
+            return redirect()->route("joueurs.create")->with('error', "Il y a déjà la nombre de joueurs requis à ce poste!");
         }
     }
     public function destroy($id, Request $request)

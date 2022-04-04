@@ -7,7 +7,8 @@
         <li><a href="{{ Route('home') }}" class="text-gray-300 text-xl">Home</a></li>
         <li><a href="{{ Route('pnj') }}" class="text-gray-300 text-xl">PNJ</a></li>
         <li><a href="{{ Route('grimoire') }}" class="text-gray-300 text-xl">Grimoire</a></li>
-        <li><a href="{{ Route('monstres') }}" class="text-gray-300 text-xl">Monstres</a></li>
+        <li><a href="{{ Route('carte') }}" class="text-gray-300 text-xl">Carte</a></li>
+        {{-- <li><a href="{{ Route('monstres') }}" class="text-gray-300 text-xl">Monstres</a></li> --}}
         <li></li>
     </ul>
 </nav>

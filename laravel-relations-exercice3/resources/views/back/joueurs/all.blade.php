@@ -4,7 +4,7 @@
 <div class='container d-flex flex-column align-items-center justify-content-center'>
         <div class="container d-flex align-items-center justify-content-around">
             <h1 class='my-5'>Joueurs</h1>
-            <a class='btn btn-success' href='{{ route('joueur.create') }}' role='button'>Create</a>
+            <a class='btn btn-success' href='{{ route('joueurs.create') }}' role='button'>Create</a>
         </div>
         @if (session()->has('message'))
             <div class='alert alert-success'>
@@ -55,12 +55,12 @@
                         <td class='text-center'>{{ $joueur->equipe->nom }}</td>
                         <td> {{-- all_td_anchor --}}
                             <div class='d-flex justify-content-around'>
-                                <form action='{{ route('joueur.destroy', $joueur->id) }}' method='post'>
+                                <form action='{{ route('joueurs.destroy', $joueur->id) }}' method='post'>
                                     @csrf
                                     <button class="btn btn-danger" type=submit>Delete</button>
                                 </form>
-                                <a class='btn btn-warning mx-3' href='{{ route('joueur.edit', $joueur->id) }}' role='button'>Edit</a>
-                                <a class='btn btn-primary' href='{{ route('joueur.read', $joueur->id) }}' role='button'>Read</a>
+                                <a class='btn btn-warning mx-3' href='{{ route('joueurs.edit', $joueur->id) }}' role='button'>Edit</a>
+                                <a class='btn btn-primary' href='{{ route('joueurs.show', $joueur->id) }}' role='button'>Read</a>
                             </div>
                         </td>
                     </tr>

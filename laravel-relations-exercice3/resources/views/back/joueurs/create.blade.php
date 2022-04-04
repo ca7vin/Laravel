@@ -23,7 +23,7 @@
                 </ul>
             </div>
         @endif
-        <form action='{{ route('joueur.store') }}' method='post' enctype="multipart/form-data">
+        <form action='{{ route('joueurs.store') }}' method='post' enctype="multipart/form-data">
             @csrf
             <div>
                 <label for=''>nom</label>

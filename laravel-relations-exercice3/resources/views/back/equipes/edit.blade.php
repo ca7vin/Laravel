@@ -12,7 +12,7 @@
                 </ul>
             </div>
         @endif
-        <form action='{{ route('equipe.update' , $equipe->id) }}' method='post'>
+        <form action='{{ route('equipes.update' , $equipe->id) }}' method='post'>
             @csrf
             <div>
                 <label for=''>nom</label>

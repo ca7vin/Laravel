@@ -12,7 +12,7 @@
                 </ul>
             </div>
         @endif
-        <form action='{{ route('joueur.update' , $joueur->id) }}' method='post' enctype="multipart/form-data">
+        <form action='{{ route('joueurs.update' , $joueur->id) }}' method='post' enctype="multipart/form-data">
             @csrf
             <div>
                 <label for=''>nom</label>

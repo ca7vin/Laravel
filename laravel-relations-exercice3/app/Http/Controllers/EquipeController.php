@@ -35,7 +35,7 @@ class EquipeController extends Controller
         $equipe->arrieresMax = $request->arrieresMax;
         $equipe->remplacantsMax = $request->remplacantsMax;
         $equipe->save(); // store_anchor
-        return redirect()->route("equipe.index")->with('message', "Successful storage !");
+        return redirect()->route("equipes.index")->with('message', "Successful storage !");
     }
     public function read($id)
     {
@@ -64,7 +64,7 @@ class EquipeController extends Controller
         $equipe->arrieresMax = $request->arrieresMax;
         $equipe->remplacantsMax = $request->remplacantsMax;
         $equipe->save(); // update_anchor
-        return redirect()->route("equipe.index")->with('message', "Successful update !");
+        return redirect()->route("equipes.index")->with('message', "Successful update !");
     }
     public function destroy($id)
     {

@@ -10,7 +10,7 @@
                             <h5 class="card-title">{{ $equipe->nom }}</h5>
                             <p class="card-text">Effectif : {{ $equipe->effectif }}</p>
                             <p class="card-text">Joueurs : {{ $equipe->joueurs->count() }}</p>
-                            <a href="{{ route('equipe.read', $equipe->id) }}" class="btn btn-primary">Show</a>
+                            <a href="{{ route('equipes.show', $equipe->id) }}" class="btn btn-primary">Show</a>
                         </div>
                     </div>
             @endforeach
@@ -22,7 +22,7 @@
                         <div class="card-body d-flex flex-column align-items-center justify-content-center">
                             <h5 class="card-title text-center">{{ $joueur->nom }} {{ $joueur->prenom }}</h5>
                             <p class="card-text">{{ $joueur->poste->nom }}</p>
-                            <a href="{{ route('joueur.read', $joueur->id) }}" class="btn btn-primary">Show</a>
+                            <a href="{{ route('joueurs.show', $joueur->id) }}" class="btn btn-primary">Show</a>
                         </div>
                     </div>
             @endforeach
@@ -34,9 +34,9 @@
                     <div class="card mb-5 p-5">
                         <div class="card-body d-flex flex-column align-items-center justify-content-center">
                             <h5 class="card-title text-center">{{ $joueur->nom }} {{ $joueur->prenom }}</h5>
-                            <p><a class='card-text' href="{{ route('equipe.read', $joueur->equipe->id) }}">{{ $joueur->equipe->nom }}</a></p>
+                            <p><a class='card-text' href="{{ route('equipes.show', $joueur->equipe->id) }}">{{ $joueur->equipe->nom }}</a></p>
                             <p class="card-text">{{ $joueur->poste->nom }}</p>
-                            <a href="{{ route('joueur.read', $joueur->id) }}" class="btn btn-primary">Show</a>
+                            <a href="{{ route('joueurs.show', $joueur->id) }}" class="btn btn-primary">Show</a>
                         </div>
                     </div>
             @endforeach
@@ -50,7 +50,7 @@
                             <h5 class="card-title">{{ $equipe->nom }}</h5>
                             <p class="card-text">Effectif : {{ $equipe->effectif }}</p>
                             <p class="card-text">Joueurs : {{ $equipe->joueurs->count() }}</p>
-                            <a href="{{ route('equipe.read', $equipe->id) }}" class="btn btn-primary">Show</a>
+                            <a href="{{ route('equipes.show', $equipe->id) }}" class="btn btn-primary">Show</a>
                         </div>
                     </div>
             @endforeach
@@ -63,9 +63,9 @@
                     <div class="card-body d-flex flex-column align-items-center justify-content-center">
                         <h5 class="card-title text-center">{{ $joueur->nom }} {{ $joueur->prenom }}</h5>
                         <p class="card-text">{{ $joueur->poste->nom }}</p>
-                        <p><a class='card-text' href="{{ route('equipe.read', $joueur->equipe->id) }}">{{ $joueur->equipe->nom }}</a></p>
+                        <p><a class='card-text' href="{{ route('equipes.show', $joueur->equipe->id) }}">{{ $joueur->equipe->nom }}</a></p>
                         <p class="card-text">{{ $joueur->pays }}</p>
-                        <a href="{{ route('joueur.read', $joueur->id) }}" class="btn btn-primary">Show</a>
+                        <a href="{{ route('joueurs.show', $joueur->id) }}" class="btn btn-primary">Show</a>
                     </div>
                 </div>
             @endif
@@ -78,8 +78,8 @@
                         <div class="card-body d-flex flex-column align-items-center justify-content-center">
                             <h5 class="card-title text-center">{{ $joueur->nom }} {{ $joueur->prenom }}</h5>
                             <p class="card-text">{{ $joueur->poste->nom }}</p>
-                            <p><a class='card-text' href="{{ route('equipe.read', $joueur->equipe->id) }}">{{ $joueur->equipe->nom }}</a></p>
-                            <a href="{{ route('joueur.read', $joueur->id) }}" class="btn btn-primary">Show</a>
+                            <p><a class='card-text' href="{{ route('equipes.show', $joueur->equipe->id) }}">{{ $joueur->equipe->nom }}</a></p>
+                            <a href="{{ route('joueurs.show', $joueur->id) }}" class="btn btn-primary">Show</a>
                         </div>
                     </div>
             @endforeach
@@ -91,8 +91,8 @@
                         <div class="card-body d-flex flex-column align-items-center justify-content-center">
                             <h5 class="card-title text-center">{{ $joueur->nom }} {{ $joueur->prenom }}</h5>
                             <p class="card-text">{{ $joueur->poste->nom }}</p>
-                            <p><a class='card-text' href="{{ route('equipe.read', $joueur->equipe->id) }}">{{ $joueur->equipe->nom }}</a></p>
-                            <a href="{{ route('joueur.read', $joueur->id) }}" class="btn btn-primary">Show</a>
+                            <p><a class='card-text' href="{{ route('equipes.show', $joueur->equipe->id) }}">{{ $joueur->equipe->nom }}</a></p>
+                            <a href="{{ route('joueurs.show', $joueur->id) }}" class="btn btn-primary">Show</a>
                         </div>
                     </div>
             @endforeach

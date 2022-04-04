@@ -4,7 +4,7 @@
     <div class='container d-flex flex-column align-items-center justify-content-center'>
         <div class="container d-flex align-items-center justify-content-around">
             <h1 class='my-5'>Equipes</h1>
-            <a class='btn btn-success' href='{{ route('equipe.create') }}' role='button'>Create</a>
+            <a class='btn btn-success' href='{{ route('equipes.create') }}' role='button'>Create</a>
         </div>
         @if (session()->has('message'))
             <div class='alert alert-success'>
@@ -48,12 +48,12 @@
                         <td class='text-center'>{{ $equipe->joueurs->where("poste_id", '=', 4)->count() }} sur {{ $equipe->remplacantsMax }}</td>
                         <td> {{-- all_td_anchor --}}
                             <div class='d-flex justify-content-around'>
-                                <form action='{{ route('equipe.destroy', $equipe->id) }}' method='post'>
+                                <form action='{{ route('equipes.destroy', $equipe->id) }}' method='post'>
                                     @csrf
                                     <button class="btn btn-danger" type=submit>Delete</button>
                                 </form>
-                                <a class='btn btn-warning' href='{{ route('equipe.edit', $equipe->id) }}' role='button'>Edit</a>
-                                <a class='btn btn-primary' href='{{ route('equipe.read', $equipe->id) }}' role='button'>Read</a>
+                                <a class='btn btn-warning' href='{{ route('equipes.edit', $equipe->id) }}' role='button'>Edit</a>
+                                <a class='btn btn-primary' href='{{ route('equipes.show', $equipe->id) }}' role='button'>Read</a>
                             </div>
                         </td>
                     </tr>

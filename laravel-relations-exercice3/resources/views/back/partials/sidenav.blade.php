@@ -23,14 +23,14 @@
          <span class="tooltip">Search</span>
       </li>
       <li>
-        <a href="{{ Route('equipe.index') }}">
+        <a href="{{ Route('equipes.index') }}">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">Equipes</span>
         </a>
          <span class="tooltip">Equipes</span>
       </li>
       <li>
-       <a href="{{ Route('joueur.index') }}">
+       <a href="{{ Route('joueurs.index') }}">
          <i class='bx bx-user' ></i>
          <span class="links_name">Joueurs</span>
        </a>

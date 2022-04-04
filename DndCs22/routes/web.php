@@ -26,7 +26,14 @@ use App\Models\Pnj;
 
 Route::get('/grimoire', [GrimoireController::class, 'index'])->name('grimoire');
 Route::get('/monstres', [MonstreController::class, 'index'])->name('monstres');
-Route::get('/monstres2', [MonstreController::class, 'loadMore'])->name('loadMore');
+Route::get('/carte', function () {
+    return view('front/pages/carte');
+})->name('carte');
+Route::get('/', function () {
+    $joueurs = Joueur::all();
+    return view('front/pages/home', compact("joueurs"));
+})->name('home');
+
 
 Route::get('/pnj', function () {
     $pnjs = Pnj::all();

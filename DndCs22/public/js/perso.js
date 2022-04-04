@@ -109,3 +109,7 @@ filterDruidBtn.addEventListener('click', () =>{
       }
     });
   })
+
+
+ function imgWindow() {
+  window.open("image") }

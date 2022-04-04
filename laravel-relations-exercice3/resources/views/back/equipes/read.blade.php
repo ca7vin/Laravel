@@ -24,13 +24,13 @@
                     <td class='text-center'>
                         <ul class='list-unstyled'>
                             @foreach ($equipe->joueurs as $joueur)
-                                <li class='list-group-items'><a href="{{ route('joueur.read', $joueur->id) }}">{{ $joueur->nom }} {{ $joueur->prenom }}</a>&nbsp;({{ $joueur->poste->nom }})</li>
+                                <li class='list-group-items'><a href="{{ route('joueurs.show', $joueur->id) }}">{{ $joueur->nom }} {{ $joueur->prenom }}</a>&nbsp;({{ $joueur->poste->nom }})</li>
                             @endforeach
 
                         </ul>
                     </td>
                     <td> {{-- read_td_anchor --}}
-                        <a class='btn btn-primary' href='{{ route('equipe.index') }}' role='button'>Back</a>
+                        <a class='btn btn-primary' href='{{ route('equipes.index') }}' role='button'>Back</a>
                     </td>
                 </tr>
             </tbody>
