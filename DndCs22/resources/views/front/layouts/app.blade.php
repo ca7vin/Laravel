@@ -14,6 +14,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/sidenav.js') }}"></script>
     <script src="{{ asset('js/perso.js') }}"></script>
+    <script src="{{ asset('js/fetch.js') }}"></script>
     <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
 </body>
 </html>

@@ -25,7 +25,9 @@ use App\Models\Pnj;
 
 
 Route::get('/grimoire', [GrimoireController::class, 'index'])->name('grimoire');
+
 Route::get('/monstres', [MonstreController::class, 'index'])->name('monstres');
+
 Route::get('/carte', function () {
     return view('front/pages/carte');
 })->name('carte');

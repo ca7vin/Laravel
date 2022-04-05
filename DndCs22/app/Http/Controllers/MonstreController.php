@@ -7,9 +7,9 @@ use Illuminate\Support\Facades\Http;
 
 class MonstreController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {   
-        $monstres = Http::get('https://api.open5e.com/monsters/?')['results'];
+        $monstres = Http::get('https://api.open5e.com/monsters/?limit=1100')['results'];
         return view("front/pages/monstres",compact('monstres'));
     } 
 
