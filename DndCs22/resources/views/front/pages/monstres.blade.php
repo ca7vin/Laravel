@@ -7,39 +7,41 @@
                 <div class="w-full card">
                     <div
                         class=" border-b border-black lg:border-l-0 lg:border-black-400 p-4 flex flex-col justify-between leading-normal">
-                        <div class="mb-8">
+                        <div class="mb-8 flex flex-col items-center justify-center">
                             <p class="text-sm text-black flex items-center font-black capitalize">
                                 {{ $monstre['type'] }} {{ $monstre['subtype'] }}
                             </p>
-                            <div class="text-black font-black uppercase text-xl mb-2 spells">{{ $monstre['name'] }}</div>
-                            <div class="columns-6 p-5">
-                                <div class="flex flex-col items-center justify-center bg-slate-400 rounded py-10">
-                                    <span class="font-black">FOR</span>
-                                    <p class="text-black text-3xl">{{ $monstre['strength'] }}</p>
+                            <div class="text-red-800 font-black uppercase text-xl spells">{{ $monstre['name'] }}</div>
+                            <div class="text-black capitalize text-sm mb-2"><span class="font-bold">Challenge :
+                                </span>{{ $monstre['challenge_rating'] }}</div>
+                            <div class="columns-6 p-5 w-full">
+                                <div class="flex flex-col items-center justify-center bg-gray-800 rounded py-10">
+                                    <span class="font-black text-white">FORCE</span>
+                                    <p class="text-white text-4xl">{{ $monstre['strength'] }}</p>
                                 </div>
-                                <div class="flex flex-col items-center justify-center bg-slate-400 rounded py-10">
-                                    <span class="font-black">DEX</span>
-                                    <p class="text-black text-3xl">{{ $monstre['dexterity'] }}</p>
+                                <div class="flex flex-col items-center justify-center bg-gray-800 rounded py-10">
+                                    <span class="font-black text-white">DEXTERITE</span>
+                                    <p class="text-white text-3xl">{{ $monstre['dexterity'] }}</p>
                                 </div>
-                                <div class="flex flex-col items-center justify-center bg-slate-400 rounded py-10">
-                                    <span class="font-black">CON</span>
-                                    <p class="text-black text-3xl">{{ $monstre['constitution'] }}</p>
+                                <div class="flex flex-col items-center justify-center bg-gray-800 rounded py-10">
+                                    <span class="font-black text-white">CONSTITUTION</span>
+                                    <p class="text-white text-3xl">{{ $monstre['constitution'] }}</p>
                                 </div>
-                                <div class="flex flex-col items-center justify-center bg-slate-400 rounded py-10">
-                                    <span class="font-black">INT</span>
-                                    <p class="text-black text-3xl">{{ $monstre['intelligence'] }}</p>
+                                <div class="flex flex-col items-center justify-center bg-gray-800 rounded py-10">
+                                    <span class="font-black text-white">INTELLIGENCE</span>
+                                    <p class="text-white text-3xl">{{ $monstre['intelligence'] }}</p>
                                 </div>
-                                <div class="flex flex-col items-center justify-center bg-slate-400 rounded py-10">
-                                    <span class="font-black">SAG</span>
-                                    <p class="text-black text-3xl">{{ $monstre['wisdom'] }}</p>
+                                <div class="flex flex-col items-center justify-center bg-gray-800 rounded py-10">
+                                    <span class="font-black text-white">SAGESSE</span>
+                                    <p class="text-white text-3xl">{{ $monstre['wisdom'] }}</p>
                                 </div>
-                                <div class="flex flex-col items-center justify-center bg-slate-400 rounded py-10">
-                                    <span class="font-black">CHA</span>
-                                    <p class="text-black text-3xl">{{ $monstre['charisma'] }}</p>
+                                <div class="flex flex-col items-center justify-center bg-gray-800 rounded py-10">
+                                    <span class="font-black text-white">CHARISME</span>
+                                    <p class="text-white text-3xl">{{ $monstre['charisma'] }}</p>
                                 </div>
-                                
+
                             </div>
-                            <div class="flex p-5 w-full justify-around">
+                            <div class="flex p-5 w-2/3 justify-around border-t-2 border-b-2 border-gray-800 my-5">
                                 <div class="flex flex-col items-center justify-center">
                                     <i class="fa-solid fa-heart fa-5x text-red-800 relative"></i>
                                     <p class='text-2xl text-white absolute z-10'>{{ $monstre['hit_points'] }}</p>
@@ -66,23 +68,37 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="flex flex-col items-start justify-center p-5">
-                                <span class="text-lg font-bold uppercase">Actions :</span>
-                                <ul class='list-disc'>
-                                    {{-- @if (count($monstre['actions']) < 2) --}}
-                                    @if (is_array($monstre['actions']) || is_object($monstre['actions']))
-                                        @foreach ($monstre['actions'] as $action)
-                                            <li>
-                                                <span class="font-bold">{{ $action['name'] }}</span>
-                                        <p>{{ $action['desc'] }}</p>
-                                            </li>
-                                        @endforeach
-                                    @endif
-                                    {{-- @else
-                                        <span class="font-bold">{{ $monstre['actions'][0]['name'] }}</span>
-                                        <p>{{ $monstre['actions'][0]['desc'] }}</p>
-                                    @endif --}}
-                                </ul>
+                            <div class="flex items-start justify-around">
+                                <div class="flex flex-col items-center justify-center w-2/5 p-5">
+                                    <span class="text-lg font-bold uppercase mb-3">Actions :</span>
+                                    <ul class='list-disc'>
+                                        @if (is_array($monstre['actions']) || is_object($monstre['actions']))
+                                            @foreach ($monstre['actions'] as $action)
+                                                <li>
+                                                    <span class="font-bold">{{ $action['name'] }}</span>
+                                                    <p>{{ $action['desc'] }}</p>
+                                                </li>
+                                            @endforeach
+                                        @endif
+                                    </ul>
+                                </div>
+                                <div class="flex flex-col items-center justify-center">
+                                    <div id="lineBetween">
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center justify-center w-2/5 p-5">
+                                    <span class="text-lg font-bold uppercase mb-3">Compétences spéciales :</span>
+                                    <ul class='list-disc'>
+                                        @if (is_array($monstre['special_abilities']) || is_object($monstre['special_abilities']))
+                                            @foreach ($monstre['special_abilities'] as $special_abilitie)
+                                                <li>
+                                                    <span class="font-bold">{{ $special_abilitie['name'] }}</span>
+                                                    <p>{{ $special_abilitie['desc'] }}</p>
+                                                </li>
+                                            @endforeach
+                                        @endif
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>

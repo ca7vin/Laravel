@@ -10,7 +10,7 @@
                 <p class="text-sm text-black flex items-center font-black">
                   {{ $spell['school'] }}
                 </p>
-                <div class="text-black font-black uppercase text-xl mb-2 spells">{{ $spell['name'] }}</div>
+                <div class="text-red-800 font-black uppercase text-xl mb-2 spells">{{ $spell['name'] }}</div>
                 <p class="text-black text-base"><span class="font-black">Description :&nbsp;</span>{{ $spell['desc'] }}</p>
                 <p class="text-sm text-black flex items-center">
                 </p>

@@ -17,6 +17,10 @@
     font-family: "Cormorant";
 }
 
+body{
+    background-color: #ddd3a7;  
+}
+
 table{
     width: 90% !important;
 }
@@ -39,4 +43,10 @@ table{
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+#lineBetween{
+    width: 1px;
+    height: fit-content;
+    background-color: #292929;
 }
