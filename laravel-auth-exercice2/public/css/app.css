@@ -656,13 +656,13 @@ select {
   margin-left: auto;
   margin-right: auto;
 }
-.my-5 {
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
-}
 .mx-3 {
   margin-left: 0.75rem;
   margin-right: 0.75rem;
+}
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 .ml-3 {
   margin-left: 0.75rem;
@@ -801,6 +801,9 @@ select {
 }
 .shrink-0 {
   flex-shrink: 0;
+}
+.table-auto {
+  table-layout: auto;
 }
 .origin-top-left {
   transform-origin: top left;
@@ -951,11 +954,11 @@ select {
 .p-2 {
   padding: 0.5rem;
 }
-.p-6 {
-  padding: 1.5rem;
-}
 .p-5 {
   padding: 1.25rem;
+}
+.p-6 {
+  padding: 1.5rem;
 }
 .px-4 {
   padding-left: 1rem;
@@ -977,6 +980,10 @@ select {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -984,10 +991,6 @@ select {
 .px-1 {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
-}
-.py-12 {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
 }
 .py-1 {
   padding-top: 0.25rem;
@@ -1034,6 +1037,10 @@ select {
   font-size: 1rem;
   line-height: 1.5rem;
 }
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -1041,10 +1048,6 @@ select {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
 }
 .text-2xl {
   font-size: 1.5rem;
@@ -1065,11 +1068,11 @@ select {
 .leading-5 {
   line-height: 1.25rem;
 }
-.leading-7 {
-  line-height: 1.75rem;
-}
 .leading-tight {
   line-height: 1.25;
+}
+.leading-7 {
+  line-height: 1.75rem;
 }
 .tracking-wider {
   letter-spacing: 0.05em;

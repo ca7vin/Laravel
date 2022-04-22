@@ -15,8 +15,6 @@ Route::middleware('guest')->group(function () {
                 ->name('register');
 
     Route::post('register', [RegisteredUserController::class, 'store']);
-    Route::post('user-destroy', [RegisteredUserController::class, 'destroy'])->name('users.destroy');
-    Route::post('user-edit', [RegisteredUserController::class, 'destroy'])->name('users.edit');
 
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
                 ->name('login');

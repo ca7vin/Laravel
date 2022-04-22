@@ -23,6 +23,9 @@ use App\Models\Pnj;
 // make a route for spell.blade.php
 
 
+Route::get('/fichepj', function () {
+    return view('front/pages/fichepj');
+})->name('fichepj');
 
 Route::get('/grimoire', [GrimoireController::class, 'index'])->name('grimoire');
 
