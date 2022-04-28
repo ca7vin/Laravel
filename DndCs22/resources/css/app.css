@@ -138,15 +138,28 @@ table{
     left: -60%;
     top: -60px;
     mix-blend-mode: soft-light;
+    z-index: -1;
 }
 .dragonR{
     right: -60%;
     top: -60px;
     mix-blend-mode: soft-light;
+    z-index: -1;
+}
+.dragon2L{
+    left: -30%;
+    top: 5%;
+    mix-blend-mode: soft-light;
+}
+.dragon2R{
+    right: -30%;
+    top: 5%;
+    mix-blend-mode: soft-light;
 }
 .dragonHead{
     bottom: 10%;
     mix-blend-mode: soft-light;
+    z-index: -1;
 }
 .resumeBg{
     width: 100%;

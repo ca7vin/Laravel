@@ -1,7 +1,7 @@
 <div class="sidebar">
     <div class="logo-details">
-        <i class="icon fa-solid text-gray-300 fa-dice-d20 fa-3x"></i>
-        <div class="logo_name">Grimoire</div>
+        {{-- <i class="icon fa-solid text-gray-300 fa-dice-d20 fa-3x"></i> --}}
+        <div class="logo_name text-center ml-5">Grimoire</div>
         <i class='bx bx-menu' id="btn"></i>
     </div>
     <ul class="nav-list">
@@ -487,18 +487,6 @@
                 <span class="links_name uppercase font-bold tracking-widest" id="filterPaladinContent">Paladin</span>
             </button>
             <span class="tooltip">Paladin</span>
-        </li>
-
-
-        <li class="profile">
-            <div class="profile-details">
-                <!--<img src="profile.jpg" alt="profileImg">-->
-                <div class="name_job">
-                    <div class="name">Prem Shahi</div>
-                    <div class="job">Web designer</div>
-                </div>
-            </div>
-            <a href="{{ Route('home') }}"><i class='icon bx bx-log-out' id="log_out"></i></a>
         </li>
     </ul>
 </div>
