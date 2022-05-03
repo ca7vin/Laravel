@@ -20,7 +20,7 @@
                     <img class='absolute dividerDivT w-1/2' src="{{ asset('img/divider3.png') }}" alt="">
                     <img class='absolute dividerDivB w-1/2' src="{{ asset('img/divider2.png') }}" alt="">
                     <div class="flex flex-col items-center justify-center w-1/5 ml-64">
-                        <p class='text-2xl font-bold uppercase text-red-900'>{{ \Illuminate\Support\Facades\Auth::user()->fiche->name }}</p>
+                        <p class='text-2xl font-bold uppercase text-red-900'>{{ \Illuminate\Support\Facades\Auth::user()->fiche->namePerso }}</p>
                         <p>Race : {{ \Illuminate\Support\Facades\Auth::user()->fiche->race }}</p>
                         <p>Alignement : {{ \Illuminate\Support\Facades\Auth::user()->fiche->alignment }}</p>
                     </div>
@@ -39,33 +39,33 @@
                     <div class="flex flex-col items-center justify-around bg-orange-50 rounded-md p-5">
                         <div class="flex flex-col items-center justify-center charBg rounded w-full m-3 py-10">
                             <span class="font-black text-white">FORCE</span>
-                            <p class='text-white text-2xl'>+
+                            <p class='text-white text-2xl'>
                                 {{ \Illuminate\Support\Facades\Auth::user()->fiche->strength }}</p>
                         </div>
                         <div class="flex flex-col items-center justify-center charBg rounded w-full m-3 py-10">
                             <span class="font-black text-white">DEXTERITE</span>
-                            <p class='text-white text-2xl'>+
+                            <p class='text-white text-2xl'>
                                 {{ \Illuminate\Support\Facades\Auth::user()->fiche->dexterity }}</p>
 
                         </div>
                         <div class="flex flex-col items-center justify-center charBg rounded w-full m-3 py-10">
                             <span class="font-black text-white">CONSTITUTION</span>
-                            <p class='text-white text-2xl'>+
+                            <p class='text-white text-2xl'>
                                 {{ \Illuminate\Support\Facades\Auth::user()->fiche->constitution }}</p>
                         </div>
                         <div class="flex flex-col items-center justify-center charBg rounded w-full m-3 py-10">
                             <span class="font-black text-white">INTELLIGENCE</span>
-                            <p class='text-white text-2xl'>+
+                            <p class='text-white text-2xl'>
                                 {{ \Illuminate\Support\Facades\Auth::user()->fiche->intelligence }}</p>
                         </div>
                         <div class="flex flex-col items-center justify-center charBg rounded w-full m-3 py-10">
                             <span class="font-black text-white">SAGESSE</span>
-                            <p class='text-white text-2xl'>+
+                            <p class='text-white text-2xl'>
                                 {{ \Illuminate\Support\Facades\Auth::user()->fiche->wisdom }}</p>
                         </div>
                         <div class="flex flex-col items-center justify-center charBg rounded w-full m-3 py-10">
                             <span class="font-black text-white">CHARISME</span>
-                            <p class='text-white text-2xl'>+
+                            <p class='text-white text-2xl'>
                                 {{ \Illuminate\Support\Facades\Auth::user()->fiche->charisma }}</p>
                         </div>
                     </div>
@@ -76,17 +76,17 @@
                             <div class="flex flex-col justify-center items-center bg-orange-50 rounded-md p-5 m-3">
                                 <div class="flex flex-col justify-center items-center">
                                     <span class="font-black uppercase text-black">Maitrise</span>
-                                    <p class='text-2xl'>+
+                                    <p class='text-2xl'>
                                         {{ \Illuminate\Support\Facades\Auth::user()->fiche->proficiency }}</p>
                                 </div>
                                 <div class="flex flex-col justify-center items-center">
                                     <span class="font-black uppercase text-black">Initiative</span>
-                                    <p class='text-2xl'>+
+                                    <p class='text-2xl'>
                                         {{ \Illuminate\Support\Facades\Auth::user()->fiche->initiative }}</p>
                                 </div>
                                 <div class="flex flex-col justify-center items-center">
                                     <span class="font-black uppercase text-black">Inspiration</span>
-                                    <p class='text-2xl'>+
+                                    <p class='text-2xl'>
                                         {{ \Illuminate\Support\Facades\Auth::user()->fiche->inspiration }}</p>
                                 </div>
                             </div>
@@ -160,32 +160,32 @@
                             <ul class='w-full'>
                                 <li class='text-xl text-black text-center'>
                                     <p class="text-xl"><span class="font-bold text-sm">FORCE :</span>
-                                        + {{ \Illuminate\Support\Facades\Auth::user()->fiche->save_strength }}
+                                         {{ \Illuminate\Support\Facades\Auth::user()->fiche->save_strength }}
                                     </p>
                                 </li>
                                 <li class='text-xl text-black text-center'>
                                     <p class="text-2xl"><span class="font-bold text-sm">DEXTERITE :</span>
-                                        + {{ \Illuminate\Support\Facades\Auth::user()->fiche->save_dexterity }}
+                                         {{ \Illuminate\Support\Facades\Auth::user()->fiche->save_dexterity }}
                                     </p>
                                 </li>
                                 <li class='text-xl text-black text-center'>
                                     <p class="text-2xl"><span class="font-bold text-sm">CONSTITUTION :</span>
-                                        + {{ \Illuminate\Support\Facades\Auth::user()->fiche->save_constitution }}
+                                         {{ \Illuminate\Support\Facades\Auth::user()->fiche->save_constitution }}
                                     </p>
                                 </li>
                                 <li class='text-xl text-black text-center'>
                                     <p class="text-2xl"><span class="font-bold text-sm">INTELLIGENCE :</span>
-                                        + {{ \Illuminate\Support\Facades\Auth::user()->fiche->save_intelligence }}
+                                         {{ \Illuminate\Support\Facades\Auth::user()->fiche->save_intelligence }}
                                     </p>
                                 </li>
                                 <li class='text-xl text-black text-center'>
                                     <p class="text-2xl"><span class="font-bold text-sm">SAGESSE :</span>
-                                        + {{ \Illuminate\Support\Facades\Auth::user()->fiche->save_wisdom }}
+                                         {{ \Illuminate\Support\Facades\Auth::user()->fiche->save_wisdom }}
                                     </p>
                                 </li>
                                 <li class='text-xl text-black text-center'>
                                     <p class="text-2xl"><span class="font-bold text-sm">CHARISME :</span>
-                                        + {{ \Illuminate\Support\Facades\Auth::user()->fiche->save_charisma }}
+                                         {{ \Illuminate\Support\Facades\Auth::user()->fiche->save_charisma }}
                                     </p>
                                 </li>
                             </ul>
@@ -198,93 +198,93 @@
                                 <ul class='w-1/2 flex flex-col items-center justify-center'>
                                     <li class='text-md text-black w-full text-center'>
                                         <p class="text-2xl"><span class="font-bold text-sm">ACROBATICS :</span>
-                                            + {{ \Illuminate\Support\Facades\Auth::user()->fiche->acrobatics }}
+                                             {{ \Illuminate\Support\Facades\Auth::user()->fiche->acrobatics }}
                                         </p>
                                     </li>
                                     <li class='text-md text-black w-full text-center'>
                                         <p class="text-2xl"><span class="font-bold text-sm">ANIMAL HANDLING :</span>
-                                            + {{ \Illuminate\Support\Facades\Auth::user()->fiche->animal_handling }}
+                                             {{ \Illuminate\Support\Facades\Auth::user()->fiche->animal_handling }}
                                         </p>
                                     </li>
                                     <li class='text-md text-black w-full text-center'>
                                         <p class="text-2xl"><span class="font-bold text-sm">ARCANA :</span>
-                                            + {{ \Illuminate\Support\Facades\Auth::user()->fiche->arcana }}
+                                             {{ \Illuminate\Support\Facades\Auth::user()->fiche->arcana }}
                                         </p>
                                     </li>
                                     <li class='text-md text-black w-full text-center'>
                                         <p class="text-2xl"><span class="font-bold text-sm">ATHLETICS :</span>
-                                            + {{ \Illuminate\Support\Facades\Auth::user()->fiche->athletics }}
+                                             {{ \Illuminate\Support\Facades\Auth::user()->fiche->athletics }}
                                         </p>
                                     </li>
                                     <li class='text-md text-black w-full text-center'>
                                         <p class="text-2xl"><span class="font-bold text-sm">DECEPTION :</span>
-                                            + {{ \Illuminate\Support\Facades\Auth::user()->fiche->deception }}
+                                             {{ \Illuminate\Support\Facades\Auth::user()->fiche->deception }}
                                         </p>
                                     </li>
                                     <li class='text-md text-black w-full text-center'>
                                         <p class="text-2xl"><span class="font-bold text-sm">HISTORY :</span>
-                                            + {{ \Illuminate\Support\Facades\Auth::user()->fiche->history }}
+                                             {{ \Illuminate\Support\Facades\Auth::user()->fiche->history }}
                                         </p>
                                     </li>
                                     <li class='text-md text-black w-full text-center'>
                                         <p class="text-2xl"><span class="font-bold text-sm">INVESTIGATION :</span>
-                                            + {{ \Illuminate\Support\Facades\Auth::user()->fiche->investigation }}
+                                             {{ \Illuminate\Support\Facades\Auth::user()->fiche->investigation }}
                                         </p>
                                     </li>
                                     <li class='text-md text-black w-full text-center'>
                                         <p class="text-2xl"><span class="font-bold text-sm">INSIGHT :</span>
-                                            + {{ \Illuminate\Support\Facades\Auth::user()->fiche->insight }}
+                                             {{ \Illuminate\Support\Facades\Auth::user()->fiche->insight }}
                                         </p>
                                     </li>
                                     <li class='text-md text-black w-full text-center'>
                                         <p class="text-2xl"><span class="font-bold text-sm">INTIMIDATION :</span>
-                                            + {{ \Illuminate\Support\Facades\Auth::user()->fiche->intimidation }}
+                                             {{ \Illuminate\Support\Facades\Auth::user()->fiche->intimidation }}
                                         </p>
                                     </li>
                                 </ul>
                                 <ul class='w-1/2 flex flex-col items-center justify-center'>
                                     <li class='text-md text-black w-full text-center'>
                                         <p class="text-2xl"><span class="font-bold text-sm">MEDICINE :</span>
-                                            + {{ \Illuminate\Support\Facades\Auth::user()->fiche->medicine }}
+                                             {{ \Illuminate\Support\Facades\Auth::user()->fiche->medicine }}
                                         </p>
                                     </li>
                                     <li class='text-md text-black w-full text-center'>
                                         <p class="text-2xl"><span class="font-bold text-sm">NATURE :</span>
-                                            + {{ \Illuminate\Support\Facades\Auth::user()->fiche->nature }}
+                                             {{ \Illuminate\Support\Facades\Auth::user()->fiche->nature }}
                                         </p>
                                     </li>
                                     <li class='text-md text-black w-full text-center'>
                                         <p class="text-2xl"><span class="font-bold text-sm">PERCEPTION :</span>
-                                            + {{ \Illuminate\Support\Facades\Auth::user()->fiche->perception }}
+                                             {{ \Illuminate\Support\Facades\Auth::user()->fiche->perception }}
                                         </p>
                                     </li>
                                     <li class='text-md text-black w-full text-center'>
                                         <p class="text-2xl"><span class="font-bold text-sm">PERFORMANCE :</span>
-                                            <+ {{ \Illuminate\Support\Facades\Auth::user()->fiche->performance }} </p>
+                                             {{ \Illuminate\Support\Facades\Auth::user()->fiche->performance }} </p>
                                     </li>
                                     <li class='text-md text-black w-full text-center'>
                                         <p class="text-2xl"><span class="font-bold text-sm">PERSUASION :</span>
-                                            + {{ \Illuminate\Support\Facades\Auth::user()->fiche->persuasion }}
+                                             {{ \Illuminate\Support\Facades\Auth::user()->fiche->persuasion }}
                                         </p>
                                     </li>
                                     <li class='text-md text-black w-full text-center'>
                                         <p class="text-2xl"><span class="font-bold text-sm">RELIGION :</span>
-                                            + {{ \Illuminate\Support\Facades\Auth::user()->fiche->religion }}
+                                             {{ \Illuminate\Support\Facades\Auth::user()->fiche->religion }}
                                         </p>
                                     </li>
                                     <li class='text-md text-black w-full text-center'>
                                         <p class="text-2xl"><span class="font-bold text-sm">SLEIGHT OF HAND :</span>
-                                            + {{ \Illuminate\Support\Facades\Auth::user()->fiche->sleight_of_hand }}
+                                             {{ \Illuminate\Support\Facades\Auth::user()->fiche->sleight_of_hand }}
                                         </p>
                                     </li>
                                     <li class='text-md text-black w-full text-center'>
                                         <p class="text-2xl"><span class="font-bold text-sm">STEALTH :</span>
-                                            + {{ \Illuminate\Support\Facades\Auth::user()->fiche->stealth }}
+                                             {{ \Illuminate\Support\Facades\Auth::user()->fiche->stealth }}
                                         </p>
                                     </li>
                                     <li class='text-md text-black w-full text-center'>
                                         <p class="text-2xl"><span class="font-bold text-sm">SURVIVAL :</span>
-                                            + {{ \Illuminate\Support\Facades\Auth::user()->fiche->survival }}
+                                             {{ \Illuminate\Support\Facades\Auth::user()->fiche->survival }}
                                         </p>
                                     </li>
                                 </ul>
@@ -294,6 +294,18 @@
                     </div>
                     {{-- caractere start --}}
                     <div class="flex flex-col justify-around">
+                        <div class="flex flex-col items-center justify-center my-3 text-center bg-orange-50 rounded-md p-5 w-full">
+                            <p class='text-md text-black w-full'><span
+                                    class="text-red-900 text-lg font-bold uppercase">Lanceur de sort :
+                                </span><br>
+                            </p>
+                            <ul>
+                                <li><strong>Classe</strong> : {{ \Illuminate\Support\Facades\Auth::user()->fiche->spellcasting_class }}</li>
+                                <li><strong>Caract. d'incantation</strong> : {{ \Illuminate\Support\Facades\Auth::user()->fiche->spellcasting_ability }}</li>
+                                <li><strong>DD des sorts</strong> : {{ \Illuminate\Support\Facades\Auth::user()->fiche->spell_save_dc }}</li>
+                                <li><strong>Bonus au toucher</strong> :  {{ \Illuminate\Support\Facades\Auth::user()->fiche->spell_attack_bonus }}</li>
+                            </ul>
+                        </div>
                         <div class="flex items-center justify-center my-3 text-center bg-orange-50 rounded-md p-5 w-full">
                             <p class='text-md text-black w-full'><span
                                     class="text-red-900 text-lg font-bold uppercase">Historique :
@@ -343,10 +355,10 @@
                             {{ \Illuminate\Support\Facades\Auth::user()->fiche->weapon1 }}
                         </p>
                         <p class="text-lg ">
-                           + {{ \Illuminate\Support\Facades\Auth::user()->fiche->bonus_attack1 }} (toucher)
+                            {{ \Illuminate\Support\Facades\Auth::user()->fiche->bonus_attack1 }} (toucher)
                         </p>
                         <p class="text-lg ">
-                           + {{ \Illuminate\Support\Facades\Auth::user()->fiche->bonus_damage1 }} (dégâts)
+                            {{ \Illuminate\Support\Facades\Auth::user()->fiche->bonus_damage1 }} (dégâts)
                         </p>
                         <p class="text-lg ">
                             {{ \Illuminate\Support\Facades\Auth::user()->fiche->type_damage1 }}
@@ -376,16 +388,16 @@
                         <p class='text-md text-black'><span class="text-red-900 text-lg font-bold uppercase">Inventaire :
                             </span>
                         <div class="flex items-center justify-around w-full my-3">
-                            <div class="flex flex-col items-center justify-center p-10 bg-gray-200 rounded-full">
+                            <div class="flex flex-col items-center justify-center p-10 bg-gray-200 rounded-full coin shadow-lg">
                                 <p class='text-2xl'>{{ \Illuminate\Support\Facades\Auth::user()->fiche->platinum_coins }}</p>
                             </div>
-                            <div class="flex flex-col items-center justify-center p-10 bg-yellow-400 rounded-full">
+                            <div class="flex flex-col items-center justify-center p-10 bg-yellow-400 rounded-full coin shadow-lg">
                                 <p class='text-2xl'>{{ \Illuminate\Support\Facades\Auth::user()->fiche->gold_coins }}</p>
                             </div>
-                            <div class="flex flex-col items-center justify-center p-10 bg-gray-400 rounded-full">
+                            <div class="flex flex-col items-center justify-center p-10 bg-gray-400 rounded-full coin shadow-lg">
                                 <p class='text-2xl'>{{ \Illuminate\Support\Facades\Auth::user()->fiche->silver_coins }}</p>
                             </div>
-                            <div class="flex flex-col items-center justify-center p-10 bg-yellow-700 rounded-full">
+                            <div class="flex flex-col items-center justify-center p-10 bg-yellow-700 rounded-full coin shadow-lg">
                                 <p class='text-2xl'>{{ \Illuminate\Support\Facades\Auth::user()->fiche->copper_coins }}</p>
                             </div>
                         </div>

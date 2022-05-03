@@ -27,7 +27,8 @@ class FicheController extends Controller
     {
         $fiche = Fiche::find($id);
         $request->validate([
-         'name'=> 'required',
+         'namePerso'=> 'required',
+         'background'=> 'required',
          'class'=> 'required',
          'level'=> 'required',
          'race'=> 'required',
@@ -78,10 +79,10 @@ class FicheController extends Controller
          'personality_flaws'=> 'required',
          'profiencies_languages'=> 'required',
          'features_traits'=> 'required',
-        //  'spellcasting_class'=> 'required',
-        //  'spellcasting_ability'=> 'required',
-        //  'spell_save_dc'=> 'required',
-        //  'spell_attack_bonus'=> 'required',
+         'spellcasting_class'=> 'required',
+         'spellcasting_ability'=> 'required',
+         'spell_save_dc'=> 'required',
+         'spell_attack_bonus'=> 'required',
         'platinum_coins'=> 'required',
         'gold_coins'=> 'required',
         'silver_coins'=> 'required',
@@ -92,7 +93,9 @@ class FicheController extends Controller
         'bonus_damage1'=> 'required',
         'type_damage1'=> 'required',
         ]); // update_validated_anchor;
-        $fiche->name = $request->name;
+        $fiche->namePerso = $request->namePerso;
+        $fiche->avatar = $request->file("avatar")->hashName();
+        $fiche->background = $request->background;
         $fiche->class = $request->class;
         $fiche->level = $request->level;
         $fiche->race = $request->race;
@@ -143,10 +146,10 @@ class FicheController extends Controller
         $fiche->personality_flaws = $request->personality_flaws;
         $fiche->profiencies_languages = $request->profiencies_languages;
         $fiche->features_traits = $request->features_traits;
-        // $fiche->spellcasting_class = $request->spellcasting_class;
-        // $fiche->spellcasting_ability = $request->spellcasting_ability;
-        // $fiche->spell_save_dc = $request->spell_save_dc;
-        // $fiche->spell_attack_bonus = $request->spell_attack_bonus;
+        $fiche->spellcasting_class = $request->spellcasting_class;
+        $fiche->spellcasting_ability = $request->spellcasting_ability;
+        $fiche->spell_save_dc = $request->spell_save_dc;
+        $fiche->spell_attack_bonus = $request->spell_attack_bonus;
         $fiche->platinum_coins = $request->platinum_coins;
         $fiche->gold_coins = $request->gold_coins;
         $fiche->silver_coins = $request->silver_coins;
@@ -157,6 +160,7 @@ class FicheController extends Controller
         $fiche->bonus_attack1 = $request->bonus_attack1;
         $fiche->type_damage1 = $request->type_damage1;
         $fiche->save(); // update_anchor
+        $request->file("avatar")->storePublicly('img', 'public');
         return redirect()->route('fichepj');
     }
 }
