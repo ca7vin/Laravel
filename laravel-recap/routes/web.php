@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ClientController;
+use App\Models\Banner;
 use App\Models\Client;
 use App\Models\Service;
 
@@ -20,7 +22,8 @@ use App\Models\Service;
 Route::get('/', function () {
     $clients = Client::all();
     $services = Service::all();
-    return view('front/pages/welcome', compact('clients', 'services'));
+    $banner = Banner::all();
+    return view('front/pages/welcome', compact('clients', 'services', 'banner'));
 });
 
 Route::get('/dashboard', function () {
@@ -44,3 +47,7 @@ Route::get('/back/services/{id}/read', [ServiceController::class, 'read'])->name
 Route::get('/back/services/{id}/edit', [ServiceController::class, 'edit'])->name('service.edit');
 Route::post('/back/services/{id}/update', [ServiceController::class, 'update'])->name('service.update');
 Route::post('/back/services/{id}/delete', [ServiceController::class, 'destroy'])->name('service.destroy');
+// Banner
+Route::get('/back/banners', [BannerController::class, 'index'])->name('banner.index');
+Route::get('/back/banners/{id}/edit', [BannerController::class, 'edit'])->name('banner.edit');
+Route::post('/back/banners/{id}/update', [BannerController::class, 'update'])->name('banner.update');
