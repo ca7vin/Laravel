@@ -2,7 +2,8 @@
 @section('content')
     @include('layouts.navigation')
     <section class='w-full my-5'>
-        <form action="{{ route('fiche.update', \Illuminate\Support\Facades\Auth::user()->fiche->id) }}" enctype="multipart/form-data" method="POST">
+        <form action="{{ route('fiche.update', \Illuminate\Support\Facades\Auth::user()->fiche->id) }}"
+            enctype="multipart/form-data" method="POST">
             @method('POST')
             @csrf
             {{-- <img src="{{ asset('img/corner-br.png') }}" alt="" class="cornerDeco absolute right-1 bottom-2">
@@ -33,10 +34,17 @@
                             <input class="form-input" type='text' name='namePerso'
                                 value='{{ \Illuminate\Support\Facades\Auth::user()->fiche->namePerso }}'>
                         </div>
-                        <div class='flex flex-col items-center justify-center mb-3'>
-                            <label for="name">Race</label>
-                            <input class="form-input" type='text' name='race'
-                                value='{{ \Illuminate\Support\Facades\Auth::user()->fiche->race }}'>
+                        <div
+                            class="flex flex-col items-center justify-center my-3 text-center w-full">
+                            <div class="flex flex-col items-center justify-center mb-3 w-full">
+                            <label for="namePerso">Race</label>
+                                <select name='race' class="" aria-label="Default select example">
+                                    @foreach ($races as $race)
+                                        <option value="{{ $race->id }}">{{ $race->race }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            
                         </div>
                         <div class='flex flex-col items-center justify-center mb-3'>
                             <label for="name">Alignement</label>
@@ -49,11 +57,18 @@
                         <input type="file" id="avatar" name="avatar">
                     </div>
                     <div class="flex flex-col items-center justify-center w-1/5 mr-64">
-                        <div class='flex flex-col items-center justify-center mb-3'>
-                            <label for="name">Classe</label>
-                            <input class="form-input" type='text' name='class'
-                                value='{{ \Illuminate\Support\Facades\Auth::user()->fiche->class }}'>
+                        <div
+                        class="flex flex-col items-center justify-center my-3 text-center w-full">
+                        <div class="flex flex-col items-center justify-center mb-3 w-full">
+                        <label for="class">Classe</label>
+                            <select name='class' class="" aria-label="Default select example">
+                                @foreach ($classes as $classe)
+                                    <option value="{{ $classe->id }}">{{ $classe->className }}</option>
+                                @endforeach
+                            </select>
                         </div>
+                        
+                    </div>
                         <div class='flex flex-col items-center justify-center mb-3'>
                             <label for="name">Niveau</label>
                             <input class="form-input" type='text' name='level'
@@ -372,12 +387,18 @@
                             </div>
                             </p>
                         </div>
-                        <div class="flex items-center justify-center my-3 text-center bg-orange-50 rounded-md p-5 w-full">
+                        <div
+                            class="flex flex-col items-center justify-center my-3 text-center bg-orange-50 rounded-md p-5 w-full">
                             <p class='text-md text-black w-full'><span
                                     class="text-red-900 text-lg font-bold uppercase">Historique :
                                 </span><br>
-                                <input type="text" name='background'
-                                    value="{{ \Illuminate\Support\Facades\Auth::user()->fiche->background }}">
+                            <div class="flex justify-center">
+                                <select name='background' class="" aria-label="Default select example">
+                                    @foreach ($backgrounds as $background)
+                                        <option value="{{ $background->id }}">{{ $background->backgroundName }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             </p>
                         </div>
                         <div class="flex items-center justify-center my-3 text-center bg-orange-50 rounded-md p-5 w-full">

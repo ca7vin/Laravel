@@ -21,6 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'background_id',
+        'race_id',
+        'classe_id',
     ];
 
     /**
@@ -45,5 +48,20 @@ class User extends Authenticatable
     public function fiche()
     {
         return $this->hasOne(Fiche::class);
+    }
+
+    public function background()
+    {
+        return $this->belongsTo(Background::class);
+    }
+
+    public function race()
+    {
+        return $this->belongsTo(Race::class);
+    }
+
+    public function classe()
+    {
+        return $this->belongsTo(Classe::class);
     }
 }

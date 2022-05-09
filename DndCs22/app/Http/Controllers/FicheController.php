@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Background;
+use App\Models\Classe;
 use App\Models\Fiche;
+use App\Models\Race;
 use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Auth;
 
 class FicheController extends Controller
 {
@@ -21,14 +25,16 @@ class FicheController extends Controller
     public function edit($id)
     {
         $fiche = Fiche::find($id);
-        return view("/front/pages/fichepj-edit",compact("fiche"));
+        $backgrounds = Background::all();
+        $races = Race::all();
+        $classes = Classe::all();
+        return view("/front/pages/fichepj-edit",compact("fiche", "backgrounds", "races", "classes"));
     }
     public function update($id, Request $request)
     {
         $fiche = Fiche::find($id);
         $request->validate([
          'namePerso'=> 'required',
-         'background'=> 'required',
          'class'=> 'required',
          'level'=> 'required',
          'race'=> 'required',
@@ -95,10 +101,14 @@ class FicheController extends Controller
         ]); // update_validated_anchor;
         $fiche->namePerso = $request->namePerso;
         $fiche->avatar = $request->file("avatar")->hashName();
-        $fiche->background = $request->background;
+        // $fiche->background = $request->background;
+        $fiche->user->background_id = $request->background;
+        $fiche->user->race_id = $request->race;
+        $fiche->user->classe_id = $request->class;
         $fiche->class = $request->class;
+        $fiche->user->save();
         $fiche->level = $request->level;
-        $fiche->race = $request->race;
+        // $fiche->race = $request->race;
         $fiche->alignment = $request->alignment;
         $fiche->experience = $request->experience;
         $fiche->strength = $request->strength;

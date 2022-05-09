@@ -21,7 +21,7 @@
                     <img class='absolute dividerDivB w-1/2' src="{{ asset('img/divider2.png') }}" alt="">
                     <div class="flex flex-col items-center justify-center w-1/5 ml-64">
                         <p class='text-2xl font-bold uppercase text-red-900'>{{ \Illuminate\Support\Facades\Auth::user()->fiche->namePerso }}</p>
-                        <p>Race : {{ \Illuminate\Support\Facades\Auth::user()->fiche->race }}</p>
+                        <p>Race : {{ \Illuminate\Support\Facades\Auth::user()->race->race }}</p>
                         <p>Alignement : {{ \Illuminate\Support\Facades\Auth::user()->fiche->alignment }}</p>
                     </div>
                     <div class="flex flex-col items-center justify-center w-1/5">
@@ -29,7 +29,7 @@
                             src="{{ asset('img/' . \Illuminate\Support\Facades\Auth::user()->fiche->avatar) }}" alt="">
                     </div>
                     <div class="flex flex-col items-center justify-center w-1/5 mr-64">
-                        <p class='text-2xl font-bold uppercase text-red-900'>{{ \Illuminate\Support\Facades\Auth::user()->fiche->class }}</p>
+                        <p class='text-2xl font-bold uppercase text-red-900'>{{ \Illuminate\Support\Facades\Auth::user()->classe->className }}</p>
                         <p>Niveau : {{ \Illuminate\Support\Facades\Auth::user()->fiche->level }}</p>
                         <p>Expérience : {{ \Illuminate\Support\Facades\Auth::user()->fiche->experience }}</p>
                     </div>
@@ -310,7 +310,8 @@
                             <p class='text-md text-black w-full'><span
                                     class="text-red-900 text-lg font-bold uppercase">Historique :
                                 </span><br>
-                                {{ \Illuminate\Support\Facades\Auth::user()->fiche->background }}
+                                {{-- {{dd(\Illuminate\Support\Facades\Auth::user())}} --}}
+                                {{ \Illuminate\Support\Facades\Auth::user()->background->backgroundName }}
                             </p>
                         </div>
                         <div class="flex items-center justify-center my-3 text-center bg-orange-50 rounded-md p-5 w-full">
