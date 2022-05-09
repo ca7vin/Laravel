@@ -16,7 +16,7 @@
                 </ul>
             </div>
         @endif
-        <a class='btn btn-success' href='{{ route('service.create') }}' role='button'>Create</a>
+        <a class='btn btn-success' href='{{ route('services.create') }}' role='button'>Create</a>
         <table class='table'>
             <thead>
                 <tr>
@@ -42,12 +42,12 @@
                         <td>{{ $service->link }}</td>
                         <td> {{-- all_td_anchor --}}
                             <div class='d-flex'>
-                                <form action='{{ route('service.destroy', $service->id) }}' method='post'>
+                                <form action='{{ route('services.destroy', $service->id) }}' method='post'>
                                     @csrf
                                     <button class=btn btn-danger type=submit>Delete</button>
                                 </form>
-                                <a class='btn btn-primary' href='{{ route('service.edit', $service->id) }}' role='button'>Edit</a>
-                                <a class='btn btn-primary' href='{{ route('service.read', $service->id) }}' role='button'>Read</a>
+                                <a class='btn btn-primary' href='{{ route('services.edit', $service->id) }}' role='button'>Edit</a>
+                                <a class='btn btn-primary' href='{{ route('services.show', $service->id) }}' role='button'>Read</a>
                             </div>
                         </td>
                     </tr>
