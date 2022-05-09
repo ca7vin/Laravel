@@ -7,4 +7,5 @@
   @include('front/partials/services')
   @include('front/partials/about')
   @include('front/partials/client')
+  @include('front/partials/footer')
 @endsection
