@@ -1048,7 +1048,7 @@ Services Style
   color: #fff;
 }
 
-.first-service .icon {
+/* .first-service .icon {
   background-image: url(../images/service-icon-01.png);
 }
 
@@ -1079,7 +1079,7 @@ Services Style
 
 .fourth-service:hover .icon {
   background-image: url(../images/service-icon-hover-04.png);
-}
+} */
 
 .service-item:hover {
   background-image: url(../images/service-bg.jpg);

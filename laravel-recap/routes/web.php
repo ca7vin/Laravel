@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ClientController;
 use App\Models\Client;
+use App\Models\Service;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +19,8 @@ use App\Models\Client;
 
 Route::get('/', function () {
     $clients = Client::all();
-    return view('front/pages/welcome', compact('clients'));
+    $services = Service::all();
+    return view('front/pages/welcome', compact('clients', 'services'));
 });
 
 Route::get('/dashboard', function () {
@@ -33,3 +36,11 @@ Route::get('/back/clients/{id}/read', [ClientController::class, 'read'])->name('
 Route::get('/back/clients/{id}/edit', [ClientController::class, 'edit'])->name('client.edit');
 Route::post('/back/clients/{id}/update', [ClientController::class, 'update'])->name('client.update');
 Route::post('/back/clients/{id}/delete', [ClientController::class, 'destroy'])->name('client.destroy');
+// Service
+Route::get('/back/services', [ServiceController::class, 'index'])->name('service.index');
+Route::get('/back/services/create', [ServiceController::class, 'create'])->name('service.create');
+Route::post('/back/services/store', [ServiceController::class, 'store'])->name('service.store');
+Route::get('/back/services/{id}/read', [ServiceController::class, 'read'])->name('service.read');
+Route::get('/back/services/{id}/edit', [ServiceController::class, 'edit'])->name('service.edit');
+Route::post('/back/services/{id}/update', [ServiceController::class, 'update'])->name('service.update');
+Route::post('/back/services/{id}/delete', [ServiceController::class, 'destroy'])->name('service.destroy');
