@@ -21,7 +21,6 @@ class ClientController extends Controller
     {
         $client = new Client;
         $request->validate([
-         'active'=> 'required',
          'name'=> 'required',
          'date'=> 'required',
          'category'=> 'required',
@@ -35,13 +34,14 @@ class ClientController extends Controller
         $client->date = $request->date;
         $client->category = $request->category;
         $client->rating = $request->rating;
-        $client->img = $request->img;
+        $client->img = $request->file('img')->hashName();
         $client->quote = $request->quote;
         $client->job = $request->job;
-        $client->save(); // store_anchor
-        return redirect()->route("client.index")->with('message', "Successful storage !");
+        $client->save(); 
+        $request->file('img')->storePublicly("images", "public");
+        return redirect()->route("clients.index")->with('message', "Successful storage !");
     }
-    public function read($id)
+    public function show($id)
     {
         $client = Client::find($id);
         return view("/back/clients/read",compact("client"));
@@ -55,7 +55,6 @@ class ClientController extends Controller
     {
         $client = Client::find($id);
         $request->validate([
-         'active'=> 'required',
          'name'=> 'required',
          'date'=> 'required',
          'category'=> 'required',
@@ -69,11 +68,12 @@ class ClientController extends Controller
         $client->date = $request->date;
         $client->category = $request->category;
         $client->rating = $request->rating;
-        $client->img = $request->img;
+        $client->img = $request->file('img')->hashName();
         $client->quote = $request->quote;
         $client->job = $request->job;
         $client->save(); // update_anchor
-        return redirect()->route("client.index")->with('message', "Successful update !");
+        $request->file('img')->storePublicly("images", "public");
+        return redirect()->route("clients.index")->with('message', "Successful update !");
     }
     public function destroy($id)
     {

@@ -40,8 +40,9 @@ class BannerController extends Controller
         $banner->btn2 = $request->btn2;
         $banner->icon2 = $request->icon2;
         $banner->link2 = $request->link2;
-        $banner->img = $request->img;
+        $banner->img = $request->file('img')->hashName();
         $banner->save(); // update_anchor
+        $request->file('img')->storePublicly("images", "public");
         return redirect()->route("banner.index")->with('message', "Successful update !");
     }
 }

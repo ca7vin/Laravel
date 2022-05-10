@@ -15,7 +15,8 @@ class ServiceController extends Controller
     }
     public function create()
     {
-        return view("/back/services/create");
+        $services = Service::all();
+        return view("/back/services/create", compact('services'));
     }
     public function store(Request $request)
     {
@@ -35,9 +36,9 @@ class ServiceController extends Controller
         $service->text = $request->text;
         $service->link = $request->link;
         $service->save(); // store_anchor
-        return redirect()->route("service.index")->with('message', "Successful storage !");
+        return redirect()->route("services.index")->with('message', "Successful storage !");
     }
-    public function read($id)
+    public function show($id)
     {
         $service = Service::find($id);
         return view("/back/services/read",compact("service"));
@@ -45,7 +46,8 @@ class ServiceController extends Controller
     public function edit($id)
     {
         $service = Service::find($id);
-        return view("/back/services/edit",compact("service"));
+        $services = Service::all();
+        return view("/back/services/edit",compact("service", "services"));
     }
     public function update($id, Request $request)
     {
@@ -65,7 +67,7 @@ class ServiceController extends Controller
         $service->text = $request->text;
         $service->link = $request->link;
         $service->save(); // update_anchor
-        return redirect()->route("service.index")->with('message', "Successful update !");
+        return redirect()->route("services.index")->with('message', "Successful update !");
     }
     public function destroy($id)
     {

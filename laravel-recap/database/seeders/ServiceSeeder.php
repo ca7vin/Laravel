@@ -18,7 +18,7 @@ class ServiceSeeder extends Seeder
         DB::table('services')->insert([
             'icon' => 'service-icon-01.png',
             'iconhover' => 'service-icon-hover-01.png',
-            'class' => 'service-icon-01',
+            'class' => 'first-service',
             'name' => 'App Maintenance',
             'text' => 'You are not allowed to redistribute this template ZIP file on any other website.',
             'link' => 'Read More',

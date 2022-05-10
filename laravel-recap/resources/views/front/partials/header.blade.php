@@ -16,8 +16,31 @@
                             <li class="scroll-to-section"><a href="#about">About</a></li>
                             <li class="scroll-to-section"><a href="#newsletter">Newsletter</a></li>
                             <li>
-                                <div class="gradient-button"><a id="modal_trigger" href="#modal"><i
-                                            class="fa fa-sign-in-alt"></i> Sign In Now</a></div>
+                                @if (Route::has('login'))
+                                    @auth
+                                <li>
+                                    <div class="gradient-button">
+                                        <a href="{{ route('dashboard') }}"><i class="fa fa-sign-in-alt"></i> Dashboard</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <form action="{{ route('logout') }}" method='post'>
+                                        @csrf
+                                        @method('POST')
+                                        <div class="gradient-button">
+                                            <button class="p-0" type='submit' style="border: none !important; height: 40px !important;"><i class="fa fa-sign-in-alt"></i> Logout</button>
+                                        </div>
+                                    </form>
+                                </li>
+                            @else
+                                <li>
+                                    <div class="gradient-button">
+                                        <a id="modal_trigger" href="#modal"><i class="fa fa-sign-in-alt"></i> Sign In
+                                            Now</a>
+                                    </div>
+                                </li>
+                            @endauth
+                            @endif
                             </li>
                         </ul>
                         <a class='menu-trigger'>
