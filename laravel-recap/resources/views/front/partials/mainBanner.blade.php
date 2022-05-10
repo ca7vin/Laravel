@@ -1,4 +1,13 @@
 <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+    @if (session()->has('message'))
+        <div class='alert alert-danger d-flex flex-column align-items-center justify-content-center' style='z-index:100 !important;'>
+            {{ session()->get('message') }}
+            <div class="gradient-button">
+                <a id="modal_trigger2" href="#modal"><i class="fa fa-sign-in-alt"></i> Sign In
+                    Now</a>
+            </div>
+        </div>
+    @endif
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -14,10 +23,12 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="white-button first-button scroll-to-section">
-                                        <a href="{{ $banner[0]->link1 }}">Free Quote <i class="{{ $banner[0]->icon1 }}"></i></a>
+                                        <a href="{{ $banner[0]->link1 }}">Free Quote <i
+                                                class="{{ $banner[0]->icon1 }}"></i></a>
                                     </div>
                                     <div class="white-button scroll-to-section">
-                                        <a href="{{ $banner[0]->link2 }}">Free Quote <i class="{{ $banner[0]->icon2 }}"></i></a>
+                                        <a href="{{ $banner[0]->link2 }}">Free Quote <i
+                                                class="{{ $banner[0]->icon2 }}"></i></a>
                                     </div>
                                 </div>
                             </div>
