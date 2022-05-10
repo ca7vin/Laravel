@@ -31,7 +31,7 @@ class BannerController extends Controller
          'icon2'=> 'required',
          'link2'=> 'required',
          'img'=> 'required',
-        ]); // update_validated_anchor;
+        ]); 
         $banner->title = $request->title;
         $banner->text = $request->text;
         $banner->btn1 = $request->btn1;
@@ -41,7 +41,7 @@ class BannerController extends Controller
         $banner->icon2 = $request->icon2;
         $banner->link2 = $request->link2;
         $banner->img = $request->file('img')->hashName();
-        $banner->save(); // update_anchor
+        $banner->save(); 
         $request->file('img')->storePublicly("images", "public");
         return redirect()->route("banner.index")->with('message', "Successful update !");
     }

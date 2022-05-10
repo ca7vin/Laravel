@@ -28,14 +28,14 @@ class ServiceController extends Controller
          'name'=> 'required',
          'text'=> 'required',
          'link'=> 'required',
-        ]); // store_validated_anchor;
+        ]); 
         $service->icon = $request->icon;
         $service->iconhover = $request->iconhover;
         $service->class = $request->class;
         $service->name = $request->name;
         $service->text = $request->text;
         $service->link = $request->link;
-        $service->save(); // store_anchor
+        $service->save(); 
         return redirect()->route("services.index")->with('message', "Successful storage !");
     }
     public function show($id)
@@ -59,14 +59,14 @@ class ServiceController extends Controller
          'name'=> 'required',
          'text'=> 'required',
          'link'=> 'required',
-        ]); // update_validated_anchor;
+        ]); 
         $service->icon = $request->icon;
         $service->iconhover = $request->iconhover;
         $service->class = $request->class;
         $service->name = $request->name;
         $service->text = $request->text;
         $service->link = $request->link;
-        $service->save(); // update_anchor
+        $service->save(); 
         return redirect()->route("services.index")->with('message', "Successful update !");
     }
     public function destroy($id)

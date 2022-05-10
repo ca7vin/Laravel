@@ -18,7 +18,7 @@ class Client extends Model
         'img',
         'quote',
         'job',
-    ]; // model_anchor
+    ]; 
      
     protected $table = 'clients';
 }

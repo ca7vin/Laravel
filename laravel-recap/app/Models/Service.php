@@ -16,7 +16,7 @@ class Service extends Model
         'name',
         'text',
         'link',
-    ]; // model_anchor
+    ]; 
      
     protected $table = 'services';
 }

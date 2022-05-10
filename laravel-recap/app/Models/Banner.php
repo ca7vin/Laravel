@@ -19,7 +19,7 @@ class Banner extends Model
         'icon2',
         'link2',
         'img',
-    ]; // model_anchor
+    ]; 
      
     protected $table = 'banners';
 }

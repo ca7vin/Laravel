@@ -28,7 +28,7 @@ class ClientController extends Controller
          'img'=> 'required',
          'quote'=> 'required',
          'job'=> 'required',
-        ]); // store_validated_anchor;
+        ]); 
         $client->active = $request->active;
         $client->name = $request->name;
         $client->date = $request->date;
@@ -62,7 +62,7 @@ class ClientController extends Controller
          'img'=> 'required',
          'quote'=> 'required',
          'job'=> 'required',
-        ]); // update_validated_anchor;
+        ]); 
         $client->active = $request->active;
         $client->name = $request->name;
         $client->date = $request->date;
@@ -71,7 +71,7 @@ class ClientController extends Controller
         $client->img = $request->file('img')->hashName();
         $client->quote = $request->quote;
         $client->job = $request->job;
-        $client->save(); // update_anchor
+        $client->save(); 
         $request->file('img')->storePublicly("images", "public");
         return redirect()->route("clients.index")->with('message', "Successful update !");
     }
