@@ -1,7 +1,9 @@
 @extends('back.layouts.app')
 @section('content')
     @include('back.partials.sidenav')
-    <section class="home-section">
+    <section class="home-section position-relative">
+        <img class='position-absolute top-0 start-0' src="{{ asset('images/regular-table-top.png') }}" alt="">
+        <img class='position-absolute bottom-0 end-0' src="{{ asset('images/regular-table-bottom.png') }}" alt="">
         <div class='container d-flex flex-column align-items-center justify-content-center'>
             <h1 class='py-5'>Services</h1>
             @if ($errors->any())
@@ -18,7 +20,7 @@
                 @method('PUT')
                 @csrf
                 <div class='my-2 d-flex flex-column align-items-center justify-content-center'>
-                    <label class="text-uppercase" for=''>icon</label>
+                    <label class="text-uppercase form-label" for=''>icon</label>
 
 
                     <div class="d-flex align-items-center justify-content-around">
@@ -39,7 +41,7 @@
                     @enderror
                 </div>
                 <div class='my-2 d-flex flex-column align-items-center justify-content-center'>
-                    <label class="text-uppercase" for=''>iconhover</label>
+                    <label class="text-uppercase form-label" for=''>iconhover</label>
                     <div class="d-flex align-items-center justify-content-around">
                         @foreach ($services as $service)
                             <div
@@ -56,7 +58,7 @@
                     @enderror
                 </div>
                 <div class='my-2'>
-                    <label class="text-uppercase" for=''>class</label>
+                    <label class="text-uppercase form-label" for=''>class</label>
                     <input class="form-control" type='text' name='class'
                         value='{{ old('class') ? old('class') : $service->class }}'>
                     @error('class')
@@ -64,7 +66,7 @@
                     @enderror
                 </div>
                 <div class='my-2'>
-                    <label class="text-uppercase" for=''>name</label>
+                    <label class="text-uppercase form-label" for=''>name</label>
                     <input class="form-control" type='text' name='name'
                         value='{!! old('name') ? old('name') : $service->name !!}'>
                     @error('name')
@@ -72,7 +74,7 @@
                     @enderror
                 </div>
                 <div class='my-2'>
-                    <label class="text-uppercase" for=''>text</label>
+                    <label class="text-uppercase form-label" for=''>text</label>
                     <input class="form-control" type='text' name='text'
                         value='{!! old('text') ? old('text') : $service->text !!}'>
                     @error('text')
@@ -80,14 +82,14 @@
                     @enderror
                 </div>
                 <div class='my-2'>
-                    <label class="text-uppercase" for=''>link</label>
+                    <label class="text-uppercase form-label" for=''>link</label>
                     <input class="form-control" type='text' name='link'
                         value='{{ old('link') ? old('link') : $service->link }}'>
                     @error('link')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                <button class='btn btn-dark mt-3' type='submit'>Update</button> {{-- update_blade_anchor --}}
+                <button class='btn btn-dark mt-3' type='submit'>Update</button> 
             </form>
         </div>
     </section>

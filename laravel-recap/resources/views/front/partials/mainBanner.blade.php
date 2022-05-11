@@ -1,13 +1,4 @@
 <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
-    @if (session()->has('message'))
-        <div class='alert alert-danger d-flex flex-column align-items-center justify-content-center' style='z-index:100 !important;'>
-            {{ session()->get('message') }}
-            <div class="gradient-button">
-                <a id="modal_trigger2" href="#modal"><i class="fa fa-sign-in-alt"></i> Sign In
-                    Now</a>
-            </div>
-        </div>
-    @endif
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

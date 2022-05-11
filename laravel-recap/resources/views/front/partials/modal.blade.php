@@ -44,7 +44,8 @@
 
         <!-- Register Form -->
         <div class="user_register">
-            <form>
+            <form method="POST" action="{{ route('register') }}">
+                @csrf
                 <!-- Name -->
             <div>
                 <x-label for="name" :value="__('Name')" />

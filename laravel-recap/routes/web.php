@@ -1,9 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use App\Models\Banner;
 use App\Models\Client;
 use App\Models\Service;
@@ -19,12 +22,7 @@ use App\Models\Service;
 |
 */
 
-Route::get('/', function () {
-    $clients = Client::all();
-    $services = Service::all();
-    $banner = Banner::all();
-    return view('front/pages/welcome', compact('clients', 'services', 'banner'));
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/dashboard', function () {
     return view('back/dashboard');
@@ -42,3 +40,8 @@ Route::resource('/back/services', ServiceController::class);
 Route::get('/back/banners', [BannerController::class, 'index'])->name('banner.index');
 Route::get('/back/banners/{id}/edit', [BannerController::class, 'edit'])->name('banner.edit');
 Route::post('/back/banners/{id}/update', [BannerController::class, 'update'])->name('banner.update');
+// Role
+Route::get('/back/roles', [RoleController::class, 'index'])->name('role.index');
+Route::get('/back/roles/{id}/read', [RoleController::class, 'read'])->name('role.read');
+// User
+Route::resource('/back/users', UserController::class);

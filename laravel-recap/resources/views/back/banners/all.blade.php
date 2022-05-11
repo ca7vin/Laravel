@@ -1,7 +1,9 @@
 @extends('back.layouts.app')
 @section('content')
 @include('back/partials/sidenav')
-    <section class="home-section">
+<section class="home-section position-relative">
+    <img class='position-absolute top-0 start-0' src="{{ asset('images/regular-table-top.png') }}" alt="">
+    <img class='position-absolute bottom-0 end-0' src="{{ asset('images/regular-table-bottom.png') }}" alt="">
         <div class='container d-flex flex-column align-items-center justify-content-center'>
             <h1 class='py-5'>Banners</h1>
             @if (session()->has('message'))
@@ -21,17 +23,17 @@
             <table class='table'>
                 <thead>
                     <tr>
-                        <th scope='col'>#</th>
-                        <th scope='col'>img</th>
-                        <th scope='col'>title</th>
-                        <th scope='col'>text</th>
-                        <th scope='col'>btn1</th>
-                        <th scope='col'>icon1</th>
-                        <th scope='col'>link1</th>
-                        <th scope='col'>btn2</th>
-                        <th scope='col'>icon2</th>
-                        <th scope='col'>link2</th>
-                    </tr> {{-- all_tr_anchor --}}
+                        <th class="text-uppercase" scope='col'>#</th>
+                        <th class="text-uppercase" scope='col'>img</th>
+                        <th class="text-uppercase" scope='col'>title</th>
+                        <th class="text-uppercase" scope='col'>text</th>
+                        <th class="text-uppercase" scope='col'>btn1</th>
+                        <th class="text-uppercase" scope='col'>icon1</th>
+                        <th class="text-uppercase" scope='col'>link1</th>
+                        <th class="text-uppercase" scope='col'>btn2</th>
+                        <th class="text-uppercase" scope='col'>icon2</th>
+                        <th class="text-uppercase" scope='col'>link2</th>
+                    </tr> 
                 </thead>
                 <tbody>
                     @foreach ($banners as $banner)
@@ -52,7 +54,7 @@
                                 <i class='{{ $banner->icon2 }} fa-2x'></i>
                             </td>
                             <td>{{ $banner->link2 }}</td>
-                            <td> {{-- all_td_anchor --}}
+                            <td> 
                                 <div class='d-flex'>
                                     <a class='btn btn-primary' href='{{ route('banner.edit', $banner->id) }}' role='button'>Edit</a>
                                 </div>

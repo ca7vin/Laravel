@@ -56,22 +56,22 @@
                     @enderror
                 </div>
                 <div>
-                    <label class='text-uppercase form-label' for=''>class</label>
+                    <label  class="text-uppercase form-label"  for=''>class</label>
                     <input class="form-control" type='text' name='class'>
                 </div>
                 <div>
-                    <label class='text-uppercase form-label' for=''>name</label>
+                    <label  class="text-uppercase form-label"  for=''>name</label>
                     <input class="form-control" type='text' name='name'>
                 </div>
                 <div>
-                    <label class='text-uppercase form-label' for=''>text</label>
+                    <label  class="text-uppercase form-label"  for=''>text</label>
                     <input class="form-control" type='text' name='text'>
                 </div>
                 <div>
-                    <label class='text-uppercase form-label' for=''>link</label>
+                    <label  class="text-uppercase form-label"  for=''>link</label>
                     <input class="form-control" type='text' name='link'>
                 </div>
-                <button class='btn btn-dark mt-3' type='submit'>Create</button> 
+                <button class='btn btn-dark mt-3' type='submit'>Create</button>
             </form>
         </div>
     </section>

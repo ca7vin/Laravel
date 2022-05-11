@@ -1,7 +1,9 @@
 @extends('back.layouts.app')
 @section('content')
     @include('back.partials.sidenav')
-    <section class="home-section">
+    <section class="home-section position-relative">
+        <img class='position-absolute top-0 start-0' src="{{ asset('images/regular-table-top.png') }}" alt="">
+        <img class='position-absolute bottom-0 end-0' src="{{ asset('images/regular-table-bottom.png') }}" alt="">
         <div class='container d-flex flex-column align-items-center justify-content-center'>
             <h1 class='py-5'>Clients</h1>
             @if ($errors->any())
@@ -18,7 +20,7 @@
                 @method('PUT')
                 @csrf
                 <div class='py-2'>
-                    <label class='text-uppercase' for=''>active</label>
+                    <label class='text-uppercase form-label' for=''>active</label>
                     <input class="form-control" type='text' name='active'
                         value='{{ old('active') ? old('active') : $client->active }}'>
                     @error('active')
@@ -26,7 +28,7 @@
                     @enderror
                 </div>
                 <div class='py-2'>
-                    <label class='text-uppercase' for=''>name</label>
+                    <label class='text-uppercase form-label' for=''>name</label>
                     <input class="form-control" type='text' name='name'
                         value='{{ old('name') ? old('name') : $client->name }}'>
                     @error('name')
@@ -34,7 +36,7 @@
                     @enderror
                 </div>
                 <div class='py-2'>
-                    <label class='text-uppercase' for=''>date</label>
+                    <label class='text-uppercase form-label' for=''>date</label>
                     <input class="form-control" type='text' name='date'
                         value='{{ old('date') ? old('date') : $client->date }}'>
                     @error('date')
@@ -42,7 +44,7 @@
                     @enderror
                 </div>
                 <div class='py-2'>
-                    <label class='text-uppercase' for=''>category</label>
+                    <label class='text-uppercase form-label' for=''>category</label>
                     <input class="form-control" type='text' name='category'
                         value='{{ old('category') ? old('category') : $client->category }}'>
                     @error('category')
@@ -50,7 +52,7 @@
                     @enderror
                 </div>
                 <div class='py-2'>
-                    <label class='text-uppercase' for=''>rating</label>
+                    <label class='text-uppercase form-label' for=''>rating</label>
                     <input class="form-control" type='text' name='rating'
                         value='{{ old('rating') ? old('rating') : $client->rating }}'>
                     @error('rating')
@@ -58,7 +60,7 @@
                     @enderror
                 </div>
                 <div class='py-2'>
-                    <label class='text-uppercase' for=''>quote</label>
+                    <label class='text-uppercase form-label' for=''>quote</label>
                     <input class="form-control" type='text' name='quote'
                     value='{{ old('quote') ? old('quote') : $client->quote }}'>
                     @error('quote')
@@ -66,7 +68,7 @@
                     @enderror
                 </div>
                 <div class='py-2'>
-                    <label class='text-uppercase' for=''>job</label>
+                    <label class='text-uppercase form-label' for=''>job</label>
                     <input class="form-control" type='text' name='job'
                     value='{{ old('job') ? old('job') : $client->job }}'>
                     @error('job')
@@ -74,13 +76,13 @@
                     @enderror
                 </div>
                 <div class='py-2'>
-                    <label class='text-uppercase' for=''>img</label>
+                    <label class='text-uppercase form-label' for=''>img</label>
                     <input type="file" class='form-control' name='img'>
                     @error('img')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                <button class='btn btn-dark my-3' type='submit'>Update</button> {{-- update_blade_anchor --}}
+                <button class='btn btn-dark my-3' type='submit'>Update</button> 
             </form>
         </div>
     </section>

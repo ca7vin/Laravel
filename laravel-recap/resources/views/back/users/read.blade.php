@@ -8,12 +8,12 @@
             <table class='table'>
                 <thead>
                     <tr>
-                        <th class="text-uppercase"  scope='col'>#</th>
-                        <th class="text-uppercase"  scope='col'>icon</th>
-                        <th class="text-uppercase"  scope='col'>iconhover</th>
-                        <th class="text-uppercase"  scope='col'>name</th>
-                        <th class="text-uppercase"  scope='col'>text</th>
-                        <th class="text-uppercase"  scope='col'>link</th>
+                        <th scope='col'>#</th>
+                        <th scope='col'>icon</th>
+                        <th scope='col'>iconhover</th>
+                        <th scope='col'>name</th>
+                        <th scope='col'>text</th>
+                        <th scope='col'>link</th>
                     </tr> 
                 </thead>
                 <tbody>
@@ -28,7 +28,7 @@
                         <td>{!! $service->name !!}</td>
                         <td>{!! $service->text !!}</td>
                         <td>{{ $service->link }}</td>
-                        <td> 
+                        <td>
                             <a class='btn btn-primary' href='{{ route('services.index') }}' role='button'>Back</a>
                         </td>
                     </tr>
