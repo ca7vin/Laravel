@@ -34,7 +34,7 @@ https://templatemo.com/tm-570-chain-app-dev
 
 </head>
 
-<body class="position-relative d-flex flex-column align-items-center">
+<body class="position-relative">
 
     @yield('content')
 
