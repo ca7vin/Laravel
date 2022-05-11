@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ServiceController extends Controller
 {
@@ -16,11 +17,15 @@ class ServiceController extends Controller
     public function create()
     {
         $services = Service::all();
+        if (! Gate::allows('create-service')) {
+            abort(403);
+        }
         return view("/back/services/create", compact('services'));
     }
     public function store(Request $request)
     {
         $service = new Service;
+        $this->authorize('create', Service::class);
         $request->validate([
          'icon'=> 'required',
          'iconhover'=> 'required',
@@ -47,11 +52,15 @@ class ServiceController extends Controller
     {
         $service = Service::find($id);
         $services = Service::all();
+        if (! Gate::allows('update-service')) {
+            abort(403);
+        }
         return view("/back/services/edit",compact("service", "services"));
     }
     public function update($id, Request $request)
     {
         $service = Service::find($id);
+        $this->authorize('update', $service);
         $request->validate([
          'icon'=> 'required',
          'iconhover'=> 'required',
@@ -72,6 +81,7 @@ class ServiceController extends Controller
     public function destroy($id)
     {
         $service = Service::find($id);
+        $this->authorize('delete', $service);
         $service->delete();
         return redirect()->back()->with('message', "Successful delete !");
     }

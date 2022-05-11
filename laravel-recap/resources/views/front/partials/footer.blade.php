@@ -7,11 +7,12 @@
                 </div>
             </div>
             <div class="col-lg-6 offset-lg-3">
-                <form id="search" action="#" method="GET">
+                <form id="contact" action="{{ Route('contact-form.store') }}" method="post">
+                    @csrf
                     <div class="row">
                         <div class="col-lg-6 col-sm-6">
                             <fieldset>
-                                <input type="address" name="address" class="email"
+                                <input type="address" name="email" class="email"
                                     placeholder="Email Address..." autocomplete="on" required>
                             </fieldset>
                         </div>

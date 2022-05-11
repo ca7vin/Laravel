@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ClientController extends Controller
 {
@@ -15,11 +16,15 @@ class ClientController extends Controller
     }
     public function create()
     {
+        if (! Gate::allows('create-service')) {
+            abort(403);
+        }
         return view("/back/clients/create");
     }
     public function store(Request $request)
     {
         $client = new Client;
+        $this->authorize('create', Client::class);
         $request->validate([
          'name'=> 'required',
          'date'=> 'required',
@@ -49,11 +54,15 @@ class ClientController extends Controller
     public function edit($id)
     {
         $client = Client::find($id);
+        if (! Gate::allows('update-service')) {
+            abort(403);
+        }
         return view("/back/clients/edit",compact("client"));
     }
     public function update($id, Request $request)
     {
         $client = Client::find($id);
+        $this->authorize('update', $client);
         $request->validate([
          'name'=> 'required',
          'date'=> 'required',
@@ -78,6 +87,7 @@ class ClientController extends Controller
     public function destroy($id)
     {
         $client = Client::find($id);
+        $this->authorize('update', $client);
         $client->delete();
         return redirect()->back()->with('message', "Successful delete !");
     }

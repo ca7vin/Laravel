@@ -54,11 +54,13 @@
                                 <i class='{{ $banner->icon2 }} fa-2x'></i>
                             </td>
                             <td>{{ $banner->link2 }}</td>
+                            @can('update', $banner)
                             <td> 
                                 <div class='d-flex'>
                                     <a class='btn btn-primary' href='{{ route('banner.edit', $banner->id) }}' role='button'>Edit</a>
                                 </div>
                             </td>
+                            @endcan
                         </tr>
                     @endforeach
                 </tbody>

@@ -6,6 +6,7 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\UserController;
 use App\Models\Banner;
 use App\Models\Client;
@@ -45,3 +46,5 @@ Route::get('/back/roles', [RoleController::class, 'index'])->name('role.index');
 Route::get('/back/roles/{id}/read', [RoleController::class, 'read'])->name('role.read');
 // User
 Route::resource('/back/users', UserController::class);
+// MAIL
+Route::post('/contact-form', [NewsletterController::class, 'storeContactForm'])->name('contact-form.store');

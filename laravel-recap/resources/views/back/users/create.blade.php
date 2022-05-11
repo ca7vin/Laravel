@@ -1,11 +1,11 @@
 @extends('back.layouts.app')
 @section('content')
-@include('back.partials.sidenav')
-<section class="home-section position-relative">
-    <img class='position-absolute top-0 start-0' src="{{ asset('images/regular-table-top.png') }}" alt="">
-    <img class='position-absolute bottom-0 end-0' src="{{ asset('images/regular-table-bottom.png') }}" alt="">
+    @include('back.partials.sidenav')
+    <section class="home-section position-relative">
+        <img class='position-absolute top-0 start-0' src="{{ asset('images/regular-table-top.png') }}" alt="">
+        <img class='position-absolute bottom-0 end-0' src="{{ asset('images/regular-table-bottom.png') }}" alt="">
         <div class='container d-flex flex-column align-items-center justify-content-center'>
-            <h1 class="py-5">Services</h1>
+            <h1 class="py-5">Users</h1>
             @if ($errors->any())
                 <div class='alert alert-danger'>
                     <ul>
@@ -15,61 +15,44 @@
                     </ul>
                 </div>
             @endif
-            <form class='d-flex flex-column align-items-center justify-content-center' action='{{ route('services.store') }}' method='post'>
+            <form class='d-flex flex-column align-items-center justify-content-center' action='{{ route('users.store') }}'
+                method='post'>
                 @csrf
-                <div class='my-2 d-flex flex-column align-items-center justify-content-center'>
-                    <label class="text-uppercase form-label" for=''>icon</label>
-
-
-                    <div class="d-flex align-items-center justify-content-around">
-
-                        @foreach ($services as $service)
-                            <div
-                                class="form-check form-check-inline d-flex flex-column align-items-center justify-content-center">
-                                <input class="form-check-input ms-0 mb-3" type="radio" name="icon" value="{{ $service->icon }}">
-                                <label class="form-check-label" for="icon">
-                                    <img src="{{ asset('images/' . $service->icon) }}" alt="">
-                                </label>
-                            </div>
-                        @endforeach
-
-                    </div>
-                    @error('icon')
-                        <div class="text-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class='my-2 d-flex flex-column align-items-center justify-content-center'>
-                    <label class="text-uppercase form-label" for=''>iconhover</label>
-                    <div class="d-flex align-items-center justify-content-around">
-                        @foreach ($services as $service)
-                            <div
-                                class="form-check form-check-inline d-flex flex-column align-items-center justify-content-center">
-                                <input class="form-check-input ms-0 mb-3" type="radio" name="iconhover" value="{{ $service->iconhover }}">
-                                <label class="form-check-label" for="iconhover">
-                                    <img src="{{ asset('images/' . $service->iconhover) }}" alt="">
-                                </label>
-                            </div>
-                        @endforeach
-                    </div>
-                    @error('iconhover')
-                        <div class="text-danger">{{ $message }}</div>
-                    @enderror
-                </div>
                 <div>
-                    <label  class="text-uppercase form-label"  for=''>class</label>
-                    <input class="form-control" type='text' name='class'>
-                </div>
-                <div>
-                    <label  class="text-uppercase form-label"  for=''>name</label>
+                    <label class="text-uppercase form-label" for=''>name</label>
                     <input class="form-control" type='text' name='name'>
                 </div>
+                @error('name')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
                 <div>
-                    <label  class="text-uppercase form-label"  for=''>text</label>
-                    <input class="form-control" type='text' name='text'>
+                    <label class="text-uppercase form-label" for=''>email</label>
+                    <input class="form-control" type='email' name='email'>
                 </div>
+                @error('email')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
                 <div>
-                    <label  class="text-uppercase form-label"  for=''>link</label>
-                    <input class="form-control" type='text' name='link'>
+                    <label class="text-uppercase form-label" for='password'>password</label>
+                    <input class="form-control" type='text' name='password'>
+                </div>
+                @error('password')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+                <div class='my-5 d-flex flex-column align-items-center justify-content-center'>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="role_id">Role</label>
+                        </div>
+                        <select name='role_id' class="custom-select" id="inputGroupSelect01">
+                            @foreach ($roles as $role)
+                                <option value="{{ $role->id }}">{{ $role->role }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    @error('role_id')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <button class='btn btn-dark mt-3' type='submit'>Create</button>
             </form>

@@ -1,9 +1,9 @@
 @extends('back.layouts.app')
 @section('content')
-@include('back.partials.sidenav')
-<section class="home-section position-relative">
-    <img class='position-absolute top-0 start-0' src="{{ asset('images/regular-table-top.png') }}" alt="">
-    <img class='position-absolute bottom-0 end-0' src="{{ asset('images/regular-table-bottom.png') }}" alt="">
+    @include('back.partials.sidenav')
+    <section class="home-section position-relative">
+        <img class='position-absolute top-0 start-0' src="{{ asset('images/regular-table-top.png') }}" alt="">
+        <img class='position-absolute bottom-0 end-0' src="{{ asset('images/regular-table-bottom.png') }}" alt="">
         <div class='container d-flex flex-column align-items-center justify-content-center'>
             <h1 class='py-5'>Users</h1>
             @if (session()->has('message'))
@@ -20,16 +20,18 @@
                     </ul>
                 </div>
             @endif
-            <a class='btn btn-success' href='{{ route('users.create') }}' role='button'>Create</a>
+            @can('create', App\Models\User::class)
+                <a class='btn btn-success' href='{{ route('users.create') }}' role='button'>Create</a>
+            @endcan
             <table class='table'>
                 <thead>
                     <tr>
-                        <th class="text-uppercase"  scope='col'>#</th>
-                        <th class="text-uppercase"  scope='col'>name</th>
-                        <th class="text-uppercase"  scope='col'>email</th>
-                        <th class="text-uppercase"  scope='col'>password</th>
-                        <th class="text-uppercase"  scope='col'>role</th>
-                    </tr> 
+                        <th class="text-uppercase" scope='col'>#</th>
+                        <th class="text-uppercase" scope='col'>name</th>
+                        <th class="text-uppercase" scope='col'>email</th>
+                        <th class="text-uppercase" scope='col'>password</th>
+                        <th class="text-uppercase" scope='col'>role</th>
+                    </tr>
                 </thead>
                 <tbody>
                     @foreach ($users as $user)
@@ -41,13 +43,19 @@
                             <td>{{ $user->role->role }}</td>
                             <td>
                                 <div class='d-flex'>
-                                    <form action='{{ route('users.destroy', $user->id) }}' method='post'>
-                                        @csrf
-                                        @method('delete')
-                                        <button class='btn btn-danger' type=submit>Delete</button>
-                                    </form>
-                                    <a class='btn btn-primary' href='{{ route('users.edit', $user->id) }}' role='button'>Edit</a>
-                                    <a class='btn btn-primary' href='{{ route('users.show', $user->id) }}' role='button'>Read</a>
+                                    @can('delete', $user)
+                                        <form action='{{ route('users.destroy', $user->id) }}' method='post'>
+                                            @csrf
+                                            @method('delete')
+                                            <button class='btn btn-danger' type=submit>Delete</button>
+                                        </form>
+                                    @endcan
+                                    @can('update', $user)
+                                        <a class='btn btn-primary' href='{{ route('users.edit', $user->id) }}'
+                                            role='button'>Edit</a>
+                                    @endcan
+                                    <a class='btn btn-primary' href='{{ route('users.show', $user->id) }}'
+                                        role='button'>Read</a>
                                 </div>
                             </td>
                         </tr>

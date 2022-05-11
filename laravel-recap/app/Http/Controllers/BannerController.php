@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Banner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class BannerController extends Controller
 {
@@ -16,11 +17,15 @@ class BannerController extends Controller
     public function edit($id)
     {
         $banner = Banner::find($id);
+        if (! Gate::allows('update-banner')) {
+            abort(403);
+        }
         return view("/back/banners/edit",compact("banner"));
     }
     public function update($id, Request $request)
     {
         $banner = Banner::find($id);
+        $this->authorize('update', $banner);
         $request->validate([
          'title'=> 'required',
          'text'=> 'required',

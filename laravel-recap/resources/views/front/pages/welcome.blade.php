@@ -12,6 +12,11 @@
             </div>
         </div>
     @endif
+    @if (session()->has('success'))
+        <div class='alert alert-success d-flex flex-column align-items-center justify-content-center position-absolute' style='z-index:100 !important; top:130px;'>
+            {{ session()->get('success') }}
+        </div>
+    @endif
     @include('front/partials/mainBanner')
     @include('front/partials/services')
     @include('front/partials/about')
