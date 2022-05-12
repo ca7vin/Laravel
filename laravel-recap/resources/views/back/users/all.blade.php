@@ -51,7 +51,7 @@
                                 @endforeach
                             </td>
                             <td>
-                                <div class='d-flex'>
+                                <div class='d-flex justify-content-around'>
                                     @can('delete', $user)
                                         <form action='{{ route('users.destroy', $user->id) }}' method='post'>
                                             @csrf
@@ -60,7 +60,7 @@
                                         </form>
                                     @endcan
                                     @can('update', $user)
-                                        <a class='btn btn-primary' href='{{ route('users.edit', $user->id) }}'
+                                        <a class='btn btn-primary mx-2' href='{{ route('users.edit', $user->id) }}'
                                             role='button'>Edit</a>
                                     @endcan
                                     <a class='btn btn-primary' href='{{ route('users.show', $user->id) }}'

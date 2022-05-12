@@ -59,7 +59,7 @@
                                         </form>
                                     @endcan
                                     @can('update', $service)
-                                        <a class='btn btn-primary' href='{{ route('services.edit', $service->id) }}'
+                                        <a class='btn btn-primary mx-2' href='{{ route('services.edit', $service->id) }}'
                                             role='button'>Edit</a>
                                     @endcan
                                     <a class='btn btn-primary' href='{{ route('services.show', $service->id) }}'

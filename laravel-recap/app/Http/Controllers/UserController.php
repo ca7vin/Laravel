@@ -34,13 +34,14 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8',
-            'role_id' => 'required',
         ]);
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
-        $user->role_id = $request->role_id;
         $user->save();
+        $user->roles()->attach($request->roles, [
+            'user_id' => $user->id,
+        ]);
         return redirect('/back/users')->with('success', 'User created successfully');
     }
 
@@ -62,7 +63,6 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email,'.$user->id,
             'password' => 'required|min:8',
-            'role_id' => 'required',
         ]);
         $user->name = $request->name;
         $user->email = $request->email;
@@ -71,7 +71,15 @@ class UserController extends Controller
         } else {
             $user->password = Hash::make($request->password);
         }
-        $user->role_id = $request->role_id;
+        if ($request->roles === null) {
+            $user->roles()->sync(3, [
+                'user_id' => $user->id,
+            ]);
+        } else {
+            $user->roles()->sync($request->roles, [
+                'user_id' => $user->id,
+            ]);
+        }
         $user->save();
         return redirect()->route("users.index")->with('message', "Successful update !");
     }

@@ -61,7 +61,7 @@
                                         </form>
                                     @endcan
                                     @can('update', $client)
-                                        <a class='btn btn-primary' href='{{ route('clients.edit', $client->id) }}'
+                                        <a class='btn btn-primary mx-2' href='{{ route('clients.edit', $client->id) }}'
                                             role='button'>Edit</a>
                                     @endcan
                                     <a class='btn btn-primary' href='{{ route('clients.show', $client->id) }}'

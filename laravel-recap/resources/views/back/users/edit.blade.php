@@ -45,16 +45,14 @@
                 </div>
                 <div class='my-5 d-flex flex-column align-items-center justify-content-center'>
                     <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <label class="input-group-text" for="role_id">Role</label>
-                        </div>
-                        <select name='role_id' class="custom-select" id="inputGroupSelect01">
-                            @foreach ($roles as $role)
-                                <option value="{{ $role->id }}">{{ $role->role }}</option>
-                            @endforeach
-                        </select>
+                        @foreach ($roles as $role)
+                        <div class="form-check form-check-inline">
+                            <input name='roles[]' class="form-check-input" type="checkbox" id="inlineCheckbox1" value="{{ $role->id }}" @if ($user->roles->contains($role->id)) checked @endif>
+                            <label class="form-check-label" for="inlineCheckbox1">{{ $role->role }}</label>
+                          </div>
+                        @endforeach
                     </div>
-                    @error('role_id')
+                    @error('roles[]')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
