@@ -40,7 +40,7 @@
                 </div>
                 <div>
                     <label class='form-label text-uppercase' for=''>quote</label>
-                    <input class='form-control' type='text' name='quote'>
+                    <textarea rows="10" cols="23" class='form-control' type='text' name='quote'></textarea>
                 </div>
                 <div>
                     <label class='form-label text-uppercase' for=''>job</label>

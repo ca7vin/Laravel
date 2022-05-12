@@ -41,7 +41,9 @@ class ClientPolicy
      */
     public function create(User $user)
     {
-        return in_array($user->role_id, [1, 2]);
+        foreach ($user->roles as $role) {
+            return in_array($role->id, [1, 2]);
+        }
     }
 
     /**
@@ -51,9 +53,11 @@ class ClientPolicy
      * @param  \App\Models\Client  $client
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Client $client)
+    public function update(User $user)
     {
-        return in_array($user->role_id, [1, 2]);
+        foreach ($user->roles as $role) {
+            return in_array($role->id, [1, 2]);
+        }
     }
 
     /**
@@ -65,7 +69,9 @@ class ClientPolicy
      */
     public function delete(User $user, Client $client)
     {
-        return $user->role_id === 1;
+        foreach ($user->roles as $role) {
+            return $role->id === 1;
+        }
     }
 
     /**

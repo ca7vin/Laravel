@@ -75,8 +75,7 @@
                 </div>
                 <div class='my-2'>
                     <label class="text-uppercase form-label" for=''>text</label>
-                    <input class="form-control" type='text' name='text'
-                        value='{!! old('text') ? old('text') : $service->text !!}'>
+                    <textarea rows="10" cols="23" class='form-control' type='text' name='text'>{{old('text') ? old('text') : $service->text}}</textarea>
                     @error('text')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror

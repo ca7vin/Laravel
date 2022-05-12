@@ -45,7 +45,11 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->password }}</td>
-                            <td>{{ $user->role->role }}</td>
+                            <td>
+                                @foreach ($user->roles as $role)
+                                    {{ $role->role }} |
+                                @endforeach
+                            </td>
                             <td>
                                 <div class='d-flex'>
                                     @can('delete', $user)

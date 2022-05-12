@@ -51,7 +51,11 @@
                   <!--<img src="profile.jpg" alt="profileImg">-->
                   <div class="name_job">
                       <div class="name">{{ Auth::user()->name }}</div>
-                      <div class="job">{{ Auth::user()->role->role }}</div>
+                      <div class="job">
+                      @foreach (Auth::user()->roles as $role)
+                      {{ $role->role }} |
+                      @endforeach
+                    </div>
                   </div>
               </div>
               <a id='btnLogOut' href="{{ route('home') }}">

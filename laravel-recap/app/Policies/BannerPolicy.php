@@ -53,7 +53,9 @@ class BannerPolicy
      */
     public function update(User $user)
     {
-        return $user->role_id === 1;
+        foreach ($user->roles as $role) {
+            return $role->id === 1;
+        }
     }
 
     /**

@@ -74,7 +74,7 @@
                 @enderror
                 <div>
                     <label class='text-uppercase form-label' for=''>text</label>
-                    <input class="form-control" type='text' name='text'>
+                    <textarea rows="10" cols="23" class='form-control' type='text' name='text'></textarea>
                 </div>
                 @error('text')
                     <div class="text-danger">{{ $message }}</div>

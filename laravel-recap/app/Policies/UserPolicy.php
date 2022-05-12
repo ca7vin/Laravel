@@ -40,7 +40,9 @@ class UserPolicy
      */
     public function create(User $user)
     {
-        return $user->role_id === 1;
+        foreach ($user->roles as $role) {
+            return $role->id === 1;
+        }
     }
 
     /**
@@ -52,7 +54,9 @@ class UserPolicy
      */
     public function update(User $user)
     {
-        return $user->role_id === 1;
+        foreach ($user->roles as $role) {
+            return $role->id === 1;
+        }
     }
 
     /**
@@ -64,7 +68,9 @@ class UserPolicy
      */
     public function delete(User $user, User $model)
     {
-        return $user->role_id === 1;
+        foreach ($user->roles as $role) {
+            return $role->id === 1;
+        }
     }
 
     /**

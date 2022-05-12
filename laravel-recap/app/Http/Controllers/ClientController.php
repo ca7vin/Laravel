@@ -16,7 +16,7 @@ class ClientController extends Controller
     }
     public function create()
     {
-        if (! Gate::allows('create-service')) {
+        if (! Gate::allows('create-client')) {
             abort(403);
         }
         return view("/back/clients/create");
@@ -54,7 +54,7 @@ class ClientController extends Controller
     public function edit($id)
     {
         $client = Client::find($id);
-        if (! Gate::allows('update-service')) {
+        if (! Gate::allows('update-client')) {
             abort(403);
         }
         return view("/back/clients/edit",compact("client"));

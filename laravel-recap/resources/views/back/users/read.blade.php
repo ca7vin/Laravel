@@ -21,9 +21,13 @@
                     <tr>
                         <th scope='row'>{{ $user->id }}</th>
                         <td>{!! $user->name !!}</td>
-                        <td>{!! $user->name !!}</td>
-                        <td>{!! $user->name !!}</td>
-                        <td>{!! $user->text !!}</td>
+                        <td>{!! $user->email !!}</td>
+                        <td>{{ $user->password }}</td>
+                        <td>
+                            @foreach ($user->roles as $role)
+                                {{ $role->role }} |
+                            @endforeach
+                        </td>
                         <td>
                             <a class='btn btn-primary' href='{{ route('users.index') }}' role='button'>Back</a>
                         </td>

@@ -61,8 +61,7 @@
                 </div>
                 <div class='py-2'>
                     <label class='text-uppercase form-label' for=''>quote</label>
-                    <input class="form-control" type='text' name='quote'
-                    value='{{ old('quote') ? old('quote') : $client->quote }}'>
+                    <textarea rows="10" cols="23" class='form-control' type='text' name='quote'>{{old('quote') ? old('quote') : $client->quote}}</textarea>
                     @error('quote')
                     <div class="text-danger">{{ $message }}</div>
                     @enderror

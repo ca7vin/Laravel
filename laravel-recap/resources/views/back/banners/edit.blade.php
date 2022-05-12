@@ -27,7 +27,7 @@
                 </div>
                 <div class='py-2'>
                     <label class='form-label text-uppercase' for=''>text</label>
-                    <input class='form-control' type='text' name='text' value='{{old('text') ? old('text') : $banner->text}}'>
+                    <textarea rows="10" cols="23" class='form-control' type='text' name='text'>{{old('text') ? old('text') : $banner->text}}</textarea>
                     @error('text')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
