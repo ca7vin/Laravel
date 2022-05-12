@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Email;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -14,12 +15,19 @@ class NewsletterController extends Controller
         ]); 
         $input = $request->all(); 
         //  Send mail to admin 
-        Mail::send('emails.newsletter', array( 
-            'email' => $input['email'], 
-        ), function($message) use ($request){ 
-            $message->to($request->email, 'Admin'); 
-            $message->from('ca7vin@gmail.com');
-        }); 
-        return redirect()->back()->with(['success' => 'Contact Form Submit Successfully']);
+        $email = new Email();
+        $email->email = $request->email;
+        if (Email::where('email', $request->email)->exists()) {
+            return redirect()->back()->with(['error' => 'This Email is already registered !']);
+        } else {
+            Mail::send('emails.newsletter', array( 
+                'email' => $input['email'], 
+            ), function($message) use ($request){ 
+                $message->to($request->email, 'Admin'); 
+                $message->from('ca7vin@gmail.com');
+            }); 
+            $email->save();
+            return redirect()->back()->with(['success' => 'Contact Form Submit Successfully']);
+        }
     }
 }

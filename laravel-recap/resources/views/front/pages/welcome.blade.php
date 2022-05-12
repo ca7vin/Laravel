@@ -17,6 +17,11 @@
             {{ session()->get('success') }}
         </div>
     @endif
+    @if (session()->has('error'))
+        <div class='alert alert-danger d-flex flex-column align-items-center justify-content-center position-absolute' style='z-index:100 !important; top:130px; width:100%;'>
+            {{ session()->get('error') }}
+        </div>
+    @endif
     @include('front/partials/mainBanner')
     @include('front/partials/services')
     @include('front/partials/about')
