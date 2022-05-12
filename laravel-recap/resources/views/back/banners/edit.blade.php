@@ -76,7 +76,7 @@
                 </div>
                 <div class='py-2'>
                     <label class='form-label text-uppercase' for=''>img</label>
-                    <input type="file" class='form-control' name='img'>
+                    <input type="file" class='form-control' name='img' >
                     @error('img')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror

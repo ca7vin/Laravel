@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Banner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Gate;
 
 class BannerController extends Controller
@@ -35,7 +36,7 @@ class BannerController extends Controller
          'btn2'=> 'required',
          'icon2'=> 'required',
          'link2'=> 'required',
-         'img'=> 'required',
+        //  'img'=> 'required',
         ]); 
         $banner->title = $request->title;
         $banner->text = $request->text;
@@ -45,9 +46,14 @@ class BannerController extends Controller
         $banner->btn2 = $request->btn2;
         $banner->icon2 = $request->icon2;
         $banner->link2 = $request->link2;
-        $banner->img = $request->file('img')->hashName();
+        if (File::exists("images/". $banner->img) && $request->img == null) {
+            $banner->img = $banner->img;
+        } else {
+            File::delete("images/". $banner->img);
+            $banner->img = $request->file('img')->hashName();
+            $request->file('img')->storePublicly("images", "public");
+        }
         $banner->save(); 
-        $request->file('img')->storePublicly("images", "public");
         return redirect()->route("banner.index")->with('message', "Successful update !");
     }
 }

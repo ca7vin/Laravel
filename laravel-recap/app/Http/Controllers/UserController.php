@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 
@@ -65,7 +66,11 @@ class UserController extends Controller
         ]);
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = Hash::make($request->password);
+        if ($user->password === $request->password) {
+            $user->password = $user->password;
+        } else {
+            $user->password = Hash::make($request->password);
+        }
         $user->role_id = $request->role_id;
         $user->save();
         return redirect()->route("users.index")->with('message', "Successful update !");
@@ -81,8 +86,11 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $this->authorize('delete', $user);
-        $user->delete();
-        return redirect()->route("users.index")->with('message', "Successful delete !");
-
+        if ($user->id === Auth::user()->id) {
+            return redirect()->route("users.index")->with('error', "You cannot delete your own account !");
+        } else {
+            $user->delete();
+            return redirect()->route("users.index")->with('message', "Successful delete !");
+        }
     }
 }
